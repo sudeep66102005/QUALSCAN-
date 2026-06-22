@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Qualscan — Partner With Our Radiology Team</title>
+  <meta name="description" content="Get in touch with Qualscan for teleradiology, diagnostic imaging and reporting solutions. Email us or complete the form and our team will respond." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header header--solid">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h3l2-6 4 14 3-9 2 4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>Qualscan<small>Every Interaction Counts</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="specialties.html">Specialties</a>
+        <a href="services.html">Services</a><a href="process.html">Process</a><a href="presence.html">Presence</a>
+        <span class="nav-cta"><a class="btn btn--primary" href="contact.html">Get in Touch</a></span>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+      <h1>Let's talk radiology</h1>
+      <p>Whether you need emergency Nighthawk cover or high-volume elective reporting, our team is ready to help. Send us a note and we'll be in touch.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- INFO -->
+        <div class="contact-info" data-reveal>
+          <span class="eyebrow">Get in touch</span>
+          <h2 class="section-title" style="font-size:30px;">We'd love to hear from you</h2>
+          <p class="section-lead" style="font-size:16px;margin-bottom:32px;">Reach out by email or complete the form — a member of our team will respond promptly.</p>
+
+          <div class="contact-item">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6"/></svg></span>
+            <div><h4>Email us</h4><a href="mailto:info@qualscan.com">info@qualscan.com</a></div>
+          </div>
+          <div class="contact-item">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <div><h4>Availability</h4><p>24 hours a day, 365 days a year.</p></div>
+          </div>
+          <div class="contact-item">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-7-10a7 7 0 0114 0c0 5.65-7 10-7 10z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="11" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+            <div><h4>Where we operate</h4><p>India · Middle East · Africa · United States</p></div>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <div data-reveal data-delay="2">
+          <div class="lead-form">
+            <h3>Request a consultation</h3>
+            <p>Tell us about your facility and requirements. Fields marked <span style="color:#e0496b">*</span> are required.</p>
+
+            <form id="lead-form" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Full name <span class="req">*</span></label>
+                  <input type="text" id="name" name="name" data-required autocomplete="name" placeholder="Dr. Jane Doe" />
+                  <span class="err">Please enter your name.</span>
+                </div>
+                <div class="field">
+                  <label for="email">Work email <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" data-required autocomplete="email" placeholder="you@hospital.com" />
+                  <span class="err">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="organization">Hospital / Organization <span class="req">*</span></label>
+                  <input type="text" id="organization" name="organization" data-required placeholder="City General Hospital" />
+                  <span class="err">Please enter your organization.</span>
+                </div>
+                <div class="field">
+                  <label for="region">Region</label>
+                  <select id="region" name="region">
+                    <option value="">Select a region</option>
+                    <option>India</option>
+                    <option>Middle East</option>
+                    <option>Africa</option>
+                    <option>United States</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="interest">Service of interest</label>
+                <select id="interest" name="interest">
+                  <option value="">Select a service</option>
+                  <option>Emergency Nighthawk (24/7)</option>
+                  <option>Stat &amp; preliminary reporting</option>
+                  <option>Elective &amp; outpatient reporting</option>
+                  <option>Sub-specialty reporting</option>
+                  <option>Teleradiology solutions</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message">How can we help? <span class="req">*</span></label>
+                <textarea id="message" name="message" data-required placeholder="Tell us about your case volumes, modalities and turnaround needs..."></textarea>
+                <span class="err">Please add a short message.</span>
+              </div>
+
+              <button type="submit" class="btn btn--primary">Send enquiry <span class="arrow">→</span></button>
+              <p class="form-note">By submitting, you agree to be contacted by the Qualscan team regarding your enquiry.</p>
+            </form>
+
+            <div class="form-success" id="form-success">
+              <div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <h3>Thank you — message received!</h3>
+              <p>Your enquiry has been captured. A member of the Qualscan team will get back to you at the email you provided.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h3l2-6 4 14 3-9 2 4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Qualscan</span></div>
+          <p>A leading medical diagnostic and radiology services group providing teleradiology and reporting solutions for hospitals and healthcare facilities worldwide.</p>
+        </div>
+        <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="process.html">Our Process</a><a href="presence.html">Global Presence</a></div>
+        <div class="footer-col"><h4>Capabilities</h4><a href="specialties.html">Specialties</a><a href="services.html">Services</a><a href="services.html">Nighthawk</a></div>
+        <div class="footer-col footer-contact"><h4>Contact</h4><a href="mailto:info@qualscan.com"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6"/></svg> info@qualscan.com</a><a href="contact.html" style="margin-top:10px;">Request a callback →</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> Qualscan. All rights reserved.</span><span>Every Interaction Counts.</span></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>
