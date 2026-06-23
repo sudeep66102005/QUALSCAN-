@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=12" />
+  <link rel="stylesheet" href="css/style.css?v=13" />
 </head>
 <body>
 
@@ -278,13 +278,86 @@
     </div>
   </section>
 
-  <!-- ============ CTA ============ -->
-  <section class="section">
-    <div class="container" data-reveal>
-      <div class="cta-band">
-        <h2>Ready to elevate your radiology reporting?</h2>
-        <p>Let's discuss how Qualscan can support your hospital or facility with reliable, sub-specialty teleradiology.</p>
-        <a href="contact.html" class="btn btn--primary">Get in touch <span class="arrow">→</span></a>
+  <!-- ============ LEAD CAPTURE FORM ============ -->
+  <section class="section lead-section" id="leadForm">
+    <div class="container">
+      <div class="lead-wrap" data-reveal>
+        <div class="lead-header">
+          <h2><span class="highlight">Connect</span> With a Qualscan Advisor</h2>
+          <p>Fill out the form below and one of our specialists will get back to you shortly.</p>
+        </div>
+        <form class="lead-form-grid" id="homeLeadForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="lf-fname">First Name <span class="req">*</span></label>
+              <input type="text" id="lf-fname" name="first_name" required />
+            </div>
+            <div class="field">
+              <label for="lf-lname">Last Name <span class="req">*</span></label>
+              <input type="text" id="lf-lname" name="last_name" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="lf-email">Email <span class="req">*</span></label>
+            <input type="email" id="lf-email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="lf-phone">Phone Number</label>
+            <input type="tel" id="lf-phone" name="phone" />
+          </div>
+          <div class="field">
+            <label for="lf-company">Company / Hospital Name <span class="req">*</span></label>
+            <input type="text" id="lf-company" name="company" required />
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="lf-region">State / Region <span class="req">*</span></label>
+              <select id="lf-region" name="region" required>
+                <option value="" disabled selected>- Please Select -</option>
+                <option>India</option>
+                <option>Middle East</option>
+                <option>Africa</option>
+                <option>United States</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="lf-role">Healthcare Role <span class="req">*</span></label>
+              <select id="lf-role" name="role" required>
+                <option value="" disabled selected>- Please Select -</option>
+                <option>Radiologist</option>
+                <option>Hospital Administrator</option>
+                <option>Referring Physician</option>
+                <option>IT / PACS Manager</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="lf-interest">I'm interested in <span class="req">*</span></label>
+            <select id="lf-interest" name="interest" required>
+              <option value="" disabled selected>- Please Select -</option>
+              <option>Teleradiology Reporting</option>
+              <option>Nighthawk / Emergency Coverage</option>
+              <option>Sub-specialty Reads</option>
+              <option>Full Radiology Outsourcing</option>
+              <option>Partnership Enquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="lf-msg">Message</label>
+            <textarea id="lf-msg" name="message" rows="4" placeholder="Tell us about your needs..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Submit Enquiry <span class="arrow">→</span></button>
+          <p class="form-note">We'll respond within 24 hours. Your information is kept confidential.</p>
+        </form>
+        <!-- Success state -->
+        <div class="form-success" id="homeFormSuccess">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Thank you!</h3>
+          <p>Your enquiry has been received. A Qualscan advisor will contact you shortly.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -326,6 +399,6 @@
   </footer>
 
   <script src="js/main.js?v=10"></script>
-  <script src="js/home.js?v=10"></script>
+  <script src="js/home.js?v=13"></script>
 </body>
 </html>

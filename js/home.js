@@ -156,3 +156,47 @@
     }
   }
 })();
+
+
+
+/* ============================================================
+   HOME LEAD FORM — client-side validation + success state
+   ============================================================ */
+(function () {
+  var form = document.getElementById("homeLeadForm");
+  var success = document.getElementById("homeFormSuccess");
+  if (!form || !success) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var valid = true;
+
+    // Reset
+    form.querySelectorAll(".field").forEach(function (f) {
+      f.classList.remove("invalid");
+    });
+
+    // Validate required
+    form.querySelectorAll("[required]").forEach(function (input) {
+      var field = input.closest(".field");
+      if (!input.value.trim()) {
+        valid = false;
+        if (field) field.classList.add("invalid");
+      }
+    });
+
+    // Validate email format
+    var email = form.querySelector("[type=email]");
+    if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      valid = false;
+      var ef = email.closest(".field");
+      if (ef) ef.classList.add("invalid");
+    }
+
+    if (!valid) return;
+
+    // Show success (in production, send to backend here)
+    form.style.display = "none";
+    success.classList.add("show");
+  });
+})();

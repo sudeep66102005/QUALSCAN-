@@ -903,3 +903,134 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .spec-track { animation: none; flex-wrap: wrap; justify-content: center; gap: 20px; }
   .spec-slide { width: 280px; }
 }
+
+
+/* ============================================================
+   LEAD CAPTURE FORM — home page (no image, form-focused)
+   ============================================================ */
+.lead-section {
+  background: var(--c-bg-alt);
+  padding: 100px 0 120px;
+}
+.lead-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.lead-header {
+  margin-bottom: 40px;
+}
+.lead-header h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.lead-header h2 .highlight {
+  color: var(--c-blue);
+}
+.lead-header p {
+  font-size: 17px;
+  color: var(--c-body);
+}
+
+.lead-form-grid .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 540px) {
+  .lead-form-grid .form-row { grid-template-columns: 1fr; }
+}
+.lead-form-grid .field {
+  margin-bottom: 22px;
+}
+.lead-form-grid .field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-ink);
+  margin-bottom: 8px;
+}
+.lead-form-grid .field label .req {
+  color: #e0496b;
+}
+.lead-form-grid .field input,
+.lead-form-grid .field select,
+.lead-form-grid .field textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--c-ink);
+  padding: 14px 16px;
+  border: 1.5px solid var(--c-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.lead-form-grid .field input:focus,
+.lead-form-grid .field select:focus,
+.lead-form-grid .field textarea:focus {
+  outline: none;
+  border-color: var(--c-blue);
+  box-shadow: 0 0 0 4px rgba(21,101,216,0.10);
+}
+.lead-form-grid .field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.lead-form-grid .field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2345556b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.lead-form-grid .field.invalid input,
+.lead-form-grid .field.invalid select,
+.lead-form-grid .field.invalid textarea {
+  border-color: #e0496b;
+  background: #fff5f7;
+}
+
+.btn--full {
+  width: 100%;
+  justify-content: center;
+  padding: 16px 28px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.lead-section .form-note {
+  font-size: 13px;
+  color: var(--c-muted);
+  margin-top: 16px;
+  text-align: center;
+}
+
+.lead-section .form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 0;
+}
+.lead-section .form-success.show {
+  display: block;
+}
+.lead-section .form-success .check {
+  width: 72px; height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: var(--grad-primary);
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+.lead-section .form-success .check svg {
+  width: 36px; height: 36px;
+}
+.lead-section .form-success h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.lead-section .form-success p {
+  font-size: 16px;
+  color: var(--c-body);
+}
