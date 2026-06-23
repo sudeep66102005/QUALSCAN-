@@ -670,3 +670,123 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .stats-card { opacity: 1; transform: none; transition: none; }
   .stats-card:hover { transform: none; }
 }
+
+
+/* ============================================================
+   MAP CAROUSEL — infinite auto-scrolling region showcase
+   ============================================================ */
+.map-carousel-section {
+  overflow: hidden;
+  background: var(--c-bg-dark);
+  color: #fff;
+  padding-bottom: 100px;
+}
+.map-carousel-section .section-title { color: #fff; }
+.map-carousel-section .section-lead { color: rgba(255,255,255,0.7); }
+.map-carousel-section .eyebrow { color: var(--c-teal-light); }
+.map-carousel-section .eyebrow::before { background: var(--c-teal-light); }
+
+.map-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0 0;
+}
+/* Soft edge fade for depth */
+.map-carousel::before,
+.map-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.map-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--c-bg-dark), transparent);
+}
+.map-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--c-bg-dark), transparent);
+}
+
+.map-track {
+  display: flex;
+  gap: 48px;
+  animation: mapScroll 30s linear infinite;
+  width: max-content;
+}
+@keyframes mapScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* Pause on hover for accessibility/interaction */
+.map-carousel:hover .map-track {
+  animation-play-state: paused;
+}
+
+.map-slide {
+  flex-shrink: 0;
+  width: 320px;
+  text-align: center;
+  transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
+}
+.map-slide:hover {
+  transform: scale(1.04);
+}
+
+.map-slide__img {
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.map-slide:hover .map-slide__img {
+  border-color: rgba(24,179,199,0.3);
+  box-shadow: 0 12px 40px rgba(24,179,199,0.12);
+}
+.map-slide__img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(0.95) contrast(1.05);
+  transition: filter 0.3s var(--ease);
+}
+.map-slide:hover .map-slide__img img {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.map-slide__name {
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  transition: color 0.3s var(--ease);
+}
+.map-slide:hover .map-slide__name {
+  color: var(--c-teal-light);
+}
+
+/* Responsive: smaller cards on mobile */
+@media (max-width: 640px) {
+  .map-slide { width: 240px; }
+  .map-slide__img { height: 160px; padding: 16px; }
+  .map-slide__name { font-size: 16px; }
+  .map-track { gap: 28px; }
+}
+
+/* Reduced motion: no scrolling, static display */
+@media (prefers-reduced-motion: reduce) {
+  .map-track { animation: none; flex-wrap: wrap; justify-content: center; }
+  .map-slide { width: 200px; }
+}
