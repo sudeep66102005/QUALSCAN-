@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Presence — Teleradiology Across Four Continents | Qualscan</title>
+  <meta name="description" content="Qualscan provides teleradiology and diagnostic services across India, the Middle East, Africa and the United States — including Florida, New Jersey, Texas and Indiana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Tall wrapper drives the pinned swipe — one screen per region */
+    .geo-sticky { height: 500vh; }
+    .geo-world {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit: cover; opacity: 0.18;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header header--solid">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <span class="brand-mark brand-mark--logo" aria-hidden="true"><img src="assets/logo.png" alt="Qualscan logo" /></span>
+        <span>Qualscan<small>Every Interaction Counts</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="specialties.html">Specialties</a>
+        <a href="services.html">Services</a><a href="process.html">Process</a><a href="presence.html">Presence</a>
+        <span class="nav-cta"><a class="btn btn--primary" href="contact.html">Get in Touch</a></span>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Presence</div>
+      <h1>A truly global footprint</h1>
+      <p>Providing teleradiology services to hospitals across India, the Middle East, the United States and Africa. Scroll to travel across our regions.</p>
+    </div>
+  </section>
+
+  <!-- SCROLL-DRIVEN MAP SWIPE -->
+  <div class="geo-sticky">
+    <div class="geo-stage">
+      <!-- Map layer (parallax) -->
+      <div class="geo-map-track" aria-hidden="true">
+        <svg class="geo-world" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" fill="none">
+          <defs>
+            <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.6" fill="#4fd6e6"/>
+            </pattern>
+          </defs>
+          <rect width="1000" height="500" fill="url(#dots)" opacity="0.5"/>
+          <path d="M120 150 q60 -40 140 -20 q50 15 30 70 q-20 50 -90 60 q-80 10 -100 -40 q-20 -50 20 -70z" fill="#3b8bf0" opacity="0.5"/>
+          <path d="M470 140 q70 -30 130 0 q40 25 10 80 q-30 55 -110 55 q-70 0 -80 -60 q-10 -55 50 -75z" fill="#18b3c7" opacity="0.5"/>
+          <path d="M700 180 q60 -20 110 20 q35 35 0 90 q-40 55 -110 40 q-60 -15 -55 -80 q5 -55 55 -70z" fill="#1565d8" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <div class="geo-hint" aria-hidden="true">
+        <svg class="swipe-ico" viewBox="0 0 40 20" fill="none"><path d="M30 10H6m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Scroll to swipe across regions
+      </div>
+
+      <!-- Sliding panels -->
+      <div class="geo-content">
+        <div class="geo-panels">
+          <div class="geo-panel is-active">
+            <div class="geo-index">01 — Region</div>
+            <h2>India</h2>
+            <p>Teleradiology and diagnostic operations — where the Qualscan journey began in 1999.</p>
+            <div class="pill-row"><span class="pill">Diagnostic facilities</span><span class="pill">Teleradiology</span></div>
+          </div>
+          <div class="geo-panel">
+            <div class="geo-index">02 — Region</div>
+            <h2>Middle East</h2>
+            <p>Dedicated teleradiology services supporting hospitals and healthcare facilities across the region.</p>
+            <div class="pill-row"><span class="pill">Teleradiology</span></div>
+          </div>
+          <div class="geo-panel">
+            <div class="geo-index">03 — Region</div>
+            <h2>Africa</h2>
+            <p>Teleradiology reporting that extends sub-specialty expertise to facilities across the continent.</p>
+            <div class="pill-row"><span class="pill">Teleradiology</span></div>
+          </div>
+          <div class="geo-panel">
+            <div class="geo-index">04 — Region</div>
+            <h2>United States</h2>
+            <p>Operations and client servicing across multiple states — growing since our 2018 start in Florida.</p>
+            <div class="pill-row"><span class="pill">Florida</span><span class="pill">New Jersey</span><span class="pill">Texas</span><span class="pill">Indiana</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="geo-progress" aria-hidden="true">
+        <div class="seg"><span></span></div>
+        <div class="seg"><span></span></div>
+        <div class="seg"><span></span></div>
+        <div class="seg"><span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATIC FALLBACK (mobile / reduced motion) -->
+  <section class="section geo-fallback">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Geographic Presence</span>
+        <h2 class="section-title">Where we operate</h2>
+      </div>
+      <div class="grid grid--4">
+        <div class="card"><h3>India</h3><p>Teleradiology and diagnostic operations.</p></div>
+        <div class="card"><h3>Middle East</h3><p>Teleradiology services.</p></div>
+        <div class="card"><h3>Africa</h3><p>Teleradiology services.</p></div>
+        <div class="card"><h3>United States</h3><p>Florida, New Jersey, Texas and Indiana.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL COVERAGE SUMMARY -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">Global Coverage</span>
+        <h2 class="section-title">Serving hospitals across four continents</h2>
+        <p class="section-lead">Providing teleradiology services to hospitals in India, the Middle East, the United States and Africa.</p>
+      </div>
+      <div class="statband" style="--c:var(--c-blue);">
+        <div data-reveal data-delay="1"><div class="num" style="-webkit-text-fill-color:var(--c-blue);color:var(--c-blue);background:none;">India</div><div class="lbl" style="color:var(--c-body)">Operations &amp; teleradiology</div></div>
+        <div data-reveal data-delay="2"><div class="num" style="-webkit-text-fill-color:var(--c-teal);color:var(--c-teal);background:none;">Middle East</div><div class="lbl" style="color:var(--c-body)">Teleradiology</div></div>
+        <div data-reveal data-delay="3"><div class="num" style="-webkit-text-fill-color:var(--c-blue);color:var(--c-blue);background:none;">Africa</div><div class="lbl" style="color:var(--c-body)">Teleradiology</div></div>
+        <div data-reveal data-delay="4"><div class="num" style="-webkit-text-fill-color:var(--c-teal);color:var(--c-teal);background:none;">USA</div><div class="lbl" style="color:var(--c-body)">4 states &amp; growing</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;margin-top:96px;">
+    <div class="container" data-reveal>
+      <div class="cta-band">
+        <h2>Wherever you are, we've got you covered</h2>
+        <p>Connect with Qualscan to bring sub-specialty teleradiology to your facility.</p>
+        <a href="contact.html" class="btn btn--primary">Get in touch <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="brand"><span class="brand-mark brand-mark--logo" aria-hidden="true"><img src="assets/logo.png" alt="Qualscan logo" /></span><span>Qualscan</span></div>
+          <p>A leading medical diagnostic and radiology services group providing teleradiology and reporting solutions for hospitals and healthcare facilities worldwide.</p>
+        </div>
+        <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="process.html">Our Process</a><a href="presence.html">Global Presence</a></div>
+        <div class="footer-col"><h4>Capabilities</h4><a href="specialties.html">Specialties</a><a href="services.html">Services</a><a href="services.html">Nighthawk</a></div>
+        <div class="footer-col footer-contact"><h4>Contact</h4><a href="mailto:info@qualscan.com"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6"/></svg> info@qualscan.com</a><a href="contact.html" style="margin-top:10px;">Request a callback →</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> Qualscan. All rights reserved.</span><span>Every Interaction Counts.</span></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/presence.js"></script>
+</body>
+</html>
