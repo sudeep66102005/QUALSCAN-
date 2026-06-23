@@ -88,7 +88,7 @@
   </section>
 
   <!-- ============ REPORTING EXCELLENCE — animated stat cards ============ -->
-  <section class="section reporting">
+  <section class="section reporting" id="statsSection">
     <div class="container">
       <div class="section-head section-head--center" data-reveal>
         <span class="eyebrow">Reporting Excellence</span>
@@ -96,21 +96,21 @@
         <p class="section-lead">Consistent, time-sensitive reporting delivered around the clock — every day of the year.</p>
       </div>
       <div class="stat-cards" id="reportCards">
-        <div class="stat-card" data-card>
-          <div class="stat-num"><span data-count="30" data-prefix="&lt;">&lt;30</span><span class="unit"> min</span></div>
+        <div class="stat-card" data-card data-index="0">
+          <div class="stat-num"><span class="counter" data-target="30" data-suffix=" min">0 min</span></div>
           <div class="stat-label">Preliminary Wet Reads</div>
         </div>
-        <div class="stat-card" data-card>
-          <div class="stat-num"><span data-count="60" data-prefix="&lt;">&lt;60</span><span class="unit"> min</span></div>
-          <div class="stat-label">STAT Final Reports</div>
+        <div class="stat-card" data-card data-index="1">
+          <div class="stat-num"><span class="counter" data-target="60" data-suffix=" min">0 min</span></div>
+          <div class="stat-label">Final Reports</div>
         </div>
-        <div class="stat-card" data-card>
-          <div class="stat-num">24/7</div>
+        <div class="stat-card" data-card data-index="2">
+          <div class="stat-num"><span class="counter" data-target="24" data-suffix="/7" data-is-special="true">0/7</span></div>
           <div class="stat-label">Emergency Nighthawk Coverage</div>
         </div>
-        <div class="stat-card" data-card>
-          <div class="stat-num"><span data-count="365">365</span></div>
-          <div class="stat-label">Days a Year Reporting Support</div>
+        <div class="stat-card" data-card data-index="3">
+          <div class="stat-num"><span class="counter" data-target="365" data-suffix="+">0+</span></div>
+          <div class="stat-label">Days a Year Availability</div>
         </div>
       </div>
     </div>
