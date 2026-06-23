@@ -54,6 +54,47 @@
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---- Animated count-up stats ---- */
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute("data-count"));
+    if (isNaN(target)) return;
+    var prefix = el.getAttribute("data-prefix") || "";
+    var suffix = el.getAttribute("data-suffix") || "";
+    var decimals = (target % 1 !== 0) ? 1 : 0;
+    var duration = 1600;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      // easeOutCubic
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = (target * eased).toFixed(decimals);
+      el.textContent = prefix + val + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + target.toFixed(decimals) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counters = document.querySelectorAll("[data-count]");
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (counters.length) {
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      var co = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { animateCount(e.target); co.unobserve(e.target); }
+        });
+      }, { threshold: 0.6 });
+      counters.forEach(function (el) { co.observe(el); });
+    } else {
+      counters.forEach(function (el) {
+        var prefix = el.getAttribute("data-prefix") || "";
+        var suffix = el.getAttribute("data-suffix") || "";
+        el.textContent = prefix + el.getAttribute("data-count") + suffix;
+      });
+    }
+  }
+
   /* ---- Footer year ---- */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
