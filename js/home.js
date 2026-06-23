@@ -1,8 +1,8 @@
 /* ============================================================
    QUALSCAN — home page scroll effects
-   - scroll-driven word reveal (purpose statement)
-   - parallax background image
-   - staggered stat-card reveal with counter animation
+   - Scroll-driven word reveal (purpose statement)
+   - Parallax background image
+   - Premium stat-card reveal + counter animation
    ============================================================ */
 (function () {
   "use strict";
@@ -10,7 +10,9 @@
   var reduceMotion = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Scroll-driven word reveal ---- */
+  /* ============================================================
+     SCROLL-DRIVEN WORD REVEAL
+     ============================================================ */
   var statement = document.querySelector(".purpose-statement");
   var words = statement ? statement.querySelectorAll(".word") : [];
 
@@ -18,8 +20,8 @@
     if (!statement || !words.length) return;
     var rect = statement.getBoundingClientRect();
     var vh = window.innerHeight || document.documentElement.clientHeight;
-    var start = vh * 0.85;   // begin lighting when top reaches 85% of viewport
-    var end = vh * 0.30;     // fully lit when top reaches 30%
+    var start = vh * 0.85;
+    var end = vh * 0.30;
     var p = (start - rect.top) / (start - end);
     p = Math.max(0, Math.min(1, p));
     var count = Math.round(p * words.length);
@@ -28,7 +30,9 @@
     }
   }
 
-  /* ---- Parallax background ---- */
+  /* ============================================================
+     PARALLAX BACKGROUND
+     ============================================================ */
   var pbg = document.querySelector("[data-parallax]");
   var psection = pbg ? pbg.closest(".parallax-section") : null;
 
@@ -38,11 +42,13 @@
     var vh = window.innerHeight || document.documentElement.clientHeight;
     if (rect.bottom < -100 || rect.top > vh + 100) return;
     var offset = rect.top + rect.height / 2 - vh / 2;
-    var shift = offset * -0.12; // background moves slower than the page
+    var shift = offset * -0.12;
     pbg.style.transform = "translateY(" + shift.toFixed(1) + "px)";
   }
 
-  /* ---- rAF-throttled scroll loop ---- */
+  /* ============================================================
+     SCROLL LOOP (rAF-throttled)
+     ============================================================ */
   var ticking = false;
   function onScroll() {
     if (ticking) return;
@@ -61,107 +67,91 @@
   } else {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
-    // initial paint
     updateWords();
     updateParallax();
   }
 
   /* ============================================================
-     Premium stat-card reveal + counter animation
+     PREMIUM STAT CARDS — scroll trigger + counter animation
      - Trigger: 30% of section enters viewport
-     - Cards animate from 80px below (handled by CSS)
-     - 0.15s stagger (handled by CSS transition-delay)
-     - Counter counts from 0 to target in 2s with easeOutQuart
+     - Cards: CSS handles 80px translateY, opacity, 0.15s stagger
+     - Counter: easeOutQuart, 2s duration, counts from 0 to target
      ============================================================ */
-  var cards = document.querySelectorAll(".stat-card[data-card]");
-  var counters = document.querySelectorAll(".stat-card .counter");
-  var countersAnimated = false;
+  var statsSection = document.getElementById("statsSection");
+  var cards = document.querySelectorAll(".stats-card[data-card]");
+  var counters = document.querySelectorAll(".stats-card .counter");
+  var countersStarted = false;
 
-  /* Easing function: easeOutQuart — accelerates then slows near completion */
+  /* easeOutQuart: accelerates early, slows near completion */
   function easeOutQuart(t) {
     return 1 - Math.pow(1 - t, 4);
   }
 
-  /* Counter animation: counts from 0 to target over 2 seconds */
-  function animateCounter(el) {
+  /* Animate a single counter from 0 to target over 2 seconds */
+  function animateCounter(el, delay) {
     var target = parseInt(el.getAttribute("data-target"), 10);
     var suffix = el.getAttribute("data-suffix") || "";
+    var prefix = el.getAttribute("data-prefix") || "";
     var isSpecial = el.getAttribute("data-is-special") === "true";
-    var duration = 2000; // 2 seconds
+    var duration = 2000;
     var startTime = null;
 
-    function update(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var elapsed = timestamp - startTime;
-      var progress = Math.min(elapsed / duration, 1);
-      var easedProgress = easeOutQuart(progress);
-      var currentValue = Math.round(easedProgress * target);
+    setTimeout(function () {
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var elapsed = timestamp - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = easeOutQuart(progress);
+        var current = Math.round(eased * target);
 
-      if (isSpecial) {
-        // For "24/7" — count up to 24 then append /7
-        el.textContent = currentValue + suffix;
-      } else {
-        el.textContent = currentValue + suffix;
-      }
+        el.textContent = prefix + current + suffix;
 
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        // Final value — ensure exact target
-        if (isSpecial) {
-          el.textContent = target + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
         } else {
-          el.textContent = target + suffix;
+          // Ensure exact final value
+          el.textContent = prefix + target + suffix;
         }
       }
-    }
-
-    requestAnimationFrame(update);
+      requestAnimationFrame(step);
+    }, delay);
   }
 
   /* Start all counters with staggered delay matching card entrance */
   function startCounters() {
-    if (countersAnimated) return;
-    countersAnimated = true;
-
-    counters.forEach(function (counter, index) {
-      var delay = index * 150; // 0.15s stagger matching CSS
-      setTimeout(function () {
-        animateCounter(counter);
-      }, delay);
+    if (countersStarted) return;
+    countersStarted = true;
+    counters.forEach(function (el, index) {
+      animateCounter(el, index * 150);
     });
   }
 
-  /* IntersectionObserver for stat cards — 30% threshold */
-  if (cards.length) {
+  /* IntersectionObserver — 30% threshold */
+  if (statsSection && cards.length) {
     if ("IntersectionObserver" in window && !reduceMotion) {
-      var statsSection = document.getElementById("statsSection");
-      
-      // Section-level observer to trigger all cards and counters together
-      if (statsSection) {
-        var sectionObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              // Add is-in class to all cards (CSS handles stagger via transition-delay)
-              cards.forEach(function (card) {
-                card.classList.add("is-in");
-              });
-              // Start counter animations
-              startCounters();
-              sectionObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 }); // Trigger when 30% of section is visible
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            // Reveal all cards (CSS handles stagger via transition-delay)
+            cards.forEach(function (card) {
+              card.classList.add("is-visible");
+            });
+            // Start counter animations
+            startCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
 
-        sectionObserver.observe(statsSection);
-      }
+      observer.observe(statsSection);
     } else {
       // Fallback: show immediately with final values
-      cards.forEach(function (c) { c.classList.add("is-in"); });
+      cards.forEach(function (c) { c.classList.add("is-visible"); });
       counters.forEach(function (el) {
         var target = el.getAttribute("data-target");
         var suffix = el.getAttribute("data-suffix") || "";
-        el.textContent = target + suffix;
+        var prefix = el.getAttribute("data-prefix") || "";
+        el.textContent = prefix + target + suffix;
       });
     }
   }
