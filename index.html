@@ -34,109 +34,85 @@
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
+  <!-- ============ HERO (clean, full-brightness video) ============ -->
+  <section class="hero hero--clean">
     <div class="hero-media">
       <div class="hero-fallback"></div>
       <video autoplay muted loop playsinline poster="assets/stock-radiology.webp">
         <source src="assets/0622.mp4" type="video/mp4" />
       </video>
     </div>
+    <div class="container hero-tagline-wrap">
+      <div class="hero-tagline">
+        <h1>Bringing Exceptional Radiology Care To All Patients.</h1>
+        <p class="hero-sub">Anytime. Anywhere.</p>
+      </div>
+    </div>
     <div class="scroll-cue"><span class="mouse"></span>Scroll</div>
   </section>
 
-  <!-- ============ ABOUT HIGHLIGHTS ============ -->
-  <section class="section">
+  <!-- ============ PURPOSE — scroll-reveal text + animated background ============ -->
+  <section class="purpose">
+    <div class="purpose-bg" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="orb orb--3"></span>
+    </div>
     <div class="container">
-      <div class="section-head section-head--center" data-reveal>
-        <span class="eyebrow">About Qualscan</span>
-        <h2 class="section-title">A diagnostic imaging partner built on four pillars</h2>
-        <p class="section-lead">From high-end radiology to standardized reporting workflows, every part of Qualscan is designed to help healthcare providers deliver confident, timely care.</p>
-      </div>
-      <div class="grid grid--4">
-        <div class="card" data-reveal data-delay="1">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-7-10a7 7 0 0114 0c0 5.65-7 10-7 10z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="11" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg></div>
-          <h3>Clear Vision</h3>
-          <p>Top-quality diagnostic imaging with easy access and world-class services at competitive pricing.</p>
-        </div>
-        <div class="card" data-reveal data-delay="2">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.8"/><path d="M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <h3>Deep Expertise</h3>
-          <p>High-end radiology, specialized reporting across modalities and sub-specialty teleradiology solutions.</p>
-        </div>
-        <div class="card" data-reveal data-delay="3">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <h3>Right Process</h3>
-          <p>Turnkey radiology solutions, standardized reporting workflows and rigorous quality-control mechanisms.</p>
-        </div>
-        <div class="card" data-reveal data-delay="4">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M3 20a6 6 0 0112 0M16 11a3 3 0 100-6M21 20a6 6 0 00-5-5.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <h3>Right People</h3>
-          <p>Accomplished radiologists with 50+ combined years and a senior radiologist quality-review process.</p>
-        </div>
-      </div>
+      <p class="purpose-intro" data-reveal>
+        At Qualscan we combine advanced diagnostic technology with the judgement of senior radiologists — reshaping how imaging care is read, reported and delivered.
+      </p>
+      <h2 class="purpose-statement" aria-label="Our purpose is to improve patient care through trusted accuracy and exceptional service.">
+        <span class="word">Our</span> <span class="word">purpose</span> <span class="word">is</span>
+        <span class="word">to</span>
+        <span class="word">improve</span> <span class="word">patient</span> <span class="word">care</span>
+        <span class="word">through</span>
+        <span class="word">trusted</span>
+        <span class="word">accuracy</span> <span class="word">and</span>
+        <span class="word">exceptional</span>
+        <span class="word">service.</span>
+      </h2>
     </div>
   </section>
 
-  <!-- ============ MISSION SPLIT ============ -->
-  <section class="section section--alt">
-    <div class="container split">
+  <!-- ============ PARALLAX IMAGE SECTION ============ -->
+  <section class="parallax-section" aria-label="Sub-specialty diagnostic reading">
+    <div class="parallax-bg" data-parallax style="background-image:url('assets/female-neurology-and-radiology-doctor-studies-brain-scan.webp')"></div>
+    <div class="parallax-veil"></div>
+    <div class="container parallax-content">
       <div data-reveal>
-        <span class="eyebrow">Our Mission</span>
-        <h2 class="section-title">Supporting healthcare providers, globally</h2>
-        <p class="section-lead" style="margin-bottom:22px;">Our core mission is to deliver world-class medical imaging services while maintaining affordability and competitiveness — supporting healthcare providers wherever they are.</p>
-        <ul class="feature-list">
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Deliver world-class medical imaging services</li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Maintain affordability and competitiveness</li>
-          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Support healthcare providers across the globe</li>
-        </ul>
-        <div class="pill-row" style="margin-top:26px;">
-          <span class="pill">India</span><span class="pill">Middle East</span><span class="pill">United States</span><span class="pill">Africa</span>
-        </div>
-      </div>
-      <div data-reveal data-delay="2">
-        <div class="media-frame">
-          <img src="assets/female-neurology-and-radiology-doctor-studies-brain-scan.webp" alt="Radiologist reviewing diagnostic imaging studies" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
-          <div class="ph" style="display:none"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 15l5-5 4 4 3-3 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></svg></div>
-        </div>
+        <span class="eyebrow eyebrow--light">Precision reading</span>
+        <h2>Read by sub-specialty radiologists,<br />trusted by clinicians.</h2>
+        <p>Every study is interpreted by a radiologist matched to its sub-specialty — and reviewed for quality — so hospitals receive reports that are accurate, clear and clinically dependable.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ SPECIALTIES PREVIEW ============ -->
-  <section class="section">
+  <!-- ============ REPORTING EXCELLENCE — animated stat cards ============ -->
+  <section class="section reporting">
     <div class="container">
       <div class="section-head section-head--center" data-reveal>
-        <span class="eyebrow">Specialties</span>
-        <h2 class="section-title">Sub-specialty reporting across every modality</h2>
-        <p class="section-lead">Large case volumes interpreted by sub-specialty radiologists for consistent, time-efficient and accurate reporting.</p>
+        <span class="eyebrow">Reporting Excellence</span>
+        <h2 class="section-title">Turnaround you can rely on</h2>
+        <p class="section-lead">Consistent, time-sensitive reporting delivered around the clock — every day of the year.</p>
       </div>
-      <div class="grid grid--3">
-        <div class="card" data-reveal data-delay="1"><h3>Cardiac Imaging</h3><p>Heart and cardiovascular imaging interpretation.</p></div>
-        <div class="card" data-reveal data-delay="2"><h3>Mammography</h3><p>Breast imaging and screening studies.</p></div>
-        <div class="card" data-reveal data-delay="3"><h3>Oncology &amp; Body Imaging</h3><p>Cancer-related imaging and body imaging studies.</p></div>
-        <div class="card" data-reveal data-delay="1"><h3>Musculoskeletal (MSK)</h3><p>Bones, joints, ligaments and the musculoskeletal system.</p></div>
-        <div class="card" data-reveal data-delay="2"><h3>Neuroradiology</h3><p>Brain, spine and nervous system imaging.</p></div>
-        <div class="card" data-reveal data-delay="3"><h3>Ultrasound &amp; Doppler</h3><p>Ultrasound and vascular Doppler studies.</p></div>
-      </div>
-      <div style="text-align:center;margin-top:44px;" data-reveal>
-        <a href="specialties.html" class="btn btn--outline">View all specialties <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ STATS BAND ============ -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="section-head section-head--center" data-reveal>
-        <span class="eyebrow">By the numbers</span>
-        <h2 class="section-title">Reporting you can rely on</h2>
-      </div>
-      <div class="statband">
-        <div data-reveal data-delay="1"><div class="num"><span data-count="30" data-prefix="&lt;">&lt;30</span><span style="font-size:18px"> min</span></div><div class="lbl">Preliminary wet reads</div></div>
-        <div data-reveal data-delay="2"><div class="num"><span data-count="60" data-prefix="&lt;">&lt;60</span><span style="font-size:18px"> min</span></div><div class="lbl">Stat final reports</div></div>
-        <div data-reveal data-delay="3"><div class="num">24/7</div><div class="lbl">Emergency Nighthawk</div></div>
-        <div data-reveal data-delay="4"><div class="num" data-count="365">365</div><div class="lbl">Days a year</div></div>
+      <div class="stat-cards" id="reportCards">
+        <div class="stat-card" data-card>
+          <div class="stat-num"><span data-count="30" data-prefix="&lt;">&lt;30</span><span class="unit"> min</span></div>
+          <div class="stat-label">Preliminary Wet Reads</div>
+        </div>
+        <div class="stat-card" data-card>
+          <div class="stat-num"><span data-count="60" data-prefix="&lt;">&lt;60</span><span class="unit"> min</span></div>
+          <div class="stat-label">STAT Final Reports</div>
+        </div>
+        <div class="stat-card" data-card>
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Emergency Nighthawk Coverage</div>
+        </div>
+        <div class="stat-card" data-card>
+          <div class="stat-num"><span data-count="365">365</span></div>
+          <div class="stat-label">Days a Year Reporting Support</div>
+        </div>
       </div>
     </div>
   </section>
@@ -189,5 +165,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>
