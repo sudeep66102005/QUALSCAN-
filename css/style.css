@@ -479,7 +479,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 /* ============================================================
    PURPOSE — scroll-reveal word text + animated background
    ============================================================ */
-.purpose { position: relative; overflow: hidden; background: var(--c-bg-dark); color: #fff; padding: 120px 0 130px; }
+.purpose { position: relative; overflow: hidden; background: linear-gradient(180deg, #001E22 0%, #002A30 40%, #00363E 75%, #003C46 100%); color: #fff; padding: 120px 0 130px; }
 .purpose-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 /* Organic blob SVGs — morphing shapes with floating motion */
 .purpose-bg .blob {
