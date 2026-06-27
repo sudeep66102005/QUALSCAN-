@@ -497,7 +497,39 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .hero-tagline h1 { animation-delay: 0.25s; }
 .hero-tagline .hero-sub { animation-delay: 0.5s; }
 @media (prefers-reduced-motion: reduce) { .hero-tagline > * { opacity: 1; animation: none; } }
-@media (max-width: 600px) { .hero-tagline-wrap { padding-bottom: 16vh; } }
+@media (max-width: 640px) {
+  /* Mobile hero: video shows FULLY (no crop) at top, tagline sits below it */
+  .hero--clean {
+    min-height: 0;
+    height: auto;
+    display: block;
+    background: var(--c-bg-dark);
+  }
+  .hero--clean .hero-media {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    padding-top: 66px; /* clear the fixed header */
+  }
+  .hero--clean .hero-media video {
+    position: relative;
+    width: 100%;
+    height: auto;        /* natural aspect ratio = whole video, words in frame */
+    object-fit: contain;
+    animation: none;
+    display: block;
+  }
+  .hero--clean .hero-media::after { display: none; }
+  .hero--clean .hero-fallback { display: none; }
+  .hero-tagline-wrap {
+    position: relative;
+    padding: 26px 0 44px;
+  }
+  .hero-tagline h1 { text-shadow: none; }
+  .hero-tagline .hero-sub { text-shadow: none; }
+  .hero--clean .scroll-cue { display: none; }
+}
 
 /* ============================================================
    PURPOSE — scroll-reveal word text + animated background
