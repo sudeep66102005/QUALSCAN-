@@ -1434,13 +1434,16 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 @keyframes animateStatsX { to { transform: translateX(0); } }
 
 @media (max-width: 989px) {
+  .er-stat-section .container {
+    padding: 0;
+  }
   .er-stat-section .row {
     grid-template-columns: 1fr;
     column-gap: 0;
   }
   .er-stat-wrap {
     height: 150px !important;
-    margin: 1rem 0 0 auto;          /* right-aligned → shifts cards more right */
+    margin: 1rem auto 0 0;          /* left-aligned, flush to the left wall */
     padding: 1.2rem 22px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 2.2rem;
