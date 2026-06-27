@@ -799,6 +799,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   height: 380px;
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   display: flex;
@@ -1091,4 +1092,174 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .lead-section .form-success p {
   font-size: 16px;
   color: var(--c-body);
+}
+
+
+/* ============================================================
+   CAROUSEL GRAPHICS — premium scan/float/signal effects
+   ============================================================ */
+.spec-track {
+  animation-duration: 32s;
+}
+
+.spec-slide {
+  perspective: 900px;
+}
+
+.spec-slide:nth-child(odd) .spec-slide__img {
+  animation: diagnosticFloatA 5.6s ease-in-out infinite;
+}
+
+.spec-slide:nth-child(even) .spec-slide__img {
+  animation: diagnosticFloatB 6.4s ease-in-out infinite;
+}
+
+.spec-slide__img {
+  position: relative;
+  isolation: isolate;
+  box-shadow:
+    0 18px 50px rgba(10,31,60,0.10),
+    inset 0 0 0 1px rgba(255,255,255,0.65);
+  transition:
+    transform 0.55s var(--ease),
+    border-color 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
+}
+
+.spec-slide__img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(93,224,240,0.00) 32%, rgba(93,224,240,0.40) 48%, rgba(255,255,255,0.55) 50%, rgba(93,224,240,0.32) 54%, transparent 72%),
+    repeating-linear-gradient(180deg, rgba(255,255,255,0.00) 0 18px, rgba(93,224,240,0.10) 19px 20px);
+  mix-blend-mode: screen;
+  opacity: 0.52;
+  transform: translateX(-115%);
+  animation: scanBeam 4.8s ease-in-out infinite;
+}
+
+.spec-slide__img::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  z-index: 3;
+  border: 1px solid rgba(93,224,240,0.36);
+  border-radius: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.spec-slide__img img {
+  filter: saturate(0.96) contrast(1.02);
+  transition: transform 0.7s var(--ease), filter 0.35s var(--ease);
+}
+
+.spec-slide:hover {
+  transform: translateY(-10px) scale(1.025);
+}
+
+.spec-slide:hover .spec-slide__img {
+  animation-play-state: paused;
+  border-color: rgba(21,101,216,0.38);
+  box-shadow:
+    0 26px 70px rgba(10,31,60,0.16),
+    0 0 0 1px rgba(24,179,199,0.12),
+    0 0 48px rgba(21,101,216,0.12);
+}
+
+.spec-slide:hover .spec-slide__img::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.spec-slide:hover .spec-slide__img img {
+  transform: scale(1.09);
+  filter: saturate(1.08) contrast(1.08) brightness(1.03);
+}
+
+.spec-slide:hover .spec-slide__name {
+  transform: translateY(-2px);
+  text-shadow: 0 12px 28px rgba(21,101,216,0.18);
+}
+
+/* Country / map slide graphics — drifting grid + pulsing signal */
+.map-slide__img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(79,214,230,0.00) 0 23px, rgba(79,214,230,0.07) 24px 25px),
+    repeating-linear-gradient(90deg, rgba(79,214,230,0.00) 0 23px, rgba(79,214,230,0.07) 24px 25px);
+  background-size: 72px 72px, 72px 72px;
+  opacity: 0.5;
+  animation: globalGridDrift 9s linear infinite;
+}
+
+.map-slide__img::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 12px; height: 12px;
+  margin: -6px 0 0 -6px;
+  z-index: 3;
+  border-radius: 50%;
+  background: #5de0f0;
+  box-shadow: 0 0 0 0 rgba(79,214,230,0.48), 0 0 22px rgba(79,214,230,0.75);
+  pointer-events: none;
+  animation: mapSignalPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes globalGridDrift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 72px 72px, 72px 72px; }
+}
+
+@keyframes radarSweep {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes mapSignalPulse {
+  0% { opacity: 0.9; box-shadow: 0 0 0 0 rgba(79,214,230,0.48), 0 0 22px rgba(79,214,230,0.75); }
+  70% { opacity: 0.95; box-shadow: 0 0 0 24px rgba(79,214,230,0), 0 0 34px rgba(79,214,230,0.65); }
+  100% { opacity: 0.9; box-shadow: 0 0 0 0 rgba(79,214,230,0), 0 0 22px rgba(79,214,230,0.75); }
+}
+
+@keyframes diagnosticFloatA {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes diagnosticFloatB {
+  0%, 100% { transform: translateY(-6px); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes scanBeam {
+  0%, 36% { transform: translateX(-115%); opacity: 0; }
+  48% { opacity: 0.62; }
+  66%, 100% { transform: translateX(115%); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .map-track { animation-duration: 22s; }
+  .spec-track { animation-duration: 24s; }
+  .spec-slide:nth-child(odd) .spec-slide__img,
+  .spec-slide:nth-child(even) .spec-slide__img { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-slide__img::before,
+  .map-slide__img::after,
+  .spec-slide__img::before,
+  .spec-slide:nth-child(odd) .spec-slide__img,
+  .spec-slide:nth-child(even) .spec-slide__img {
+    animation: none;
+  }
 }
