@@ -1382,7 +1382,20 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .er-stat-wrap.stat-1 { height: clamp(170px, 23vh, 190px); }
 .er-stat-wrap.stat-2 { height: clamp(215px, 30vh, 245px); }
 .er-stat-wrap.stat-3 { height: clamp(260px, 37vh, 300px); }
-.er-stat-wrap.stat-4 { height: clamp(305px, 44vh, 355px); justify-content: flex-start; }
+.er-stat-wrap.stat-4 { height: clamp(305px, 44vh, 355px); justify-content: flex-end; }
+/* Stat card icon */
+.er-stat-wrap { position: relative; }
+.er-stat-icon {
+  position: absolute;
+  left: 9%; top: 50%;
+  transform: translateY(-50%);
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.13);
+  display: grid; place-items: center;
+  color: #fff;
+}
+.er-stat-icon svg { width: 27px; height: 27px; }
 .er-stat-content {
   opacity: 0;
   text-align: left;
@@ -1446,6 +1459,8 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .er-stat-wrap.animate-in {
     animation: animateStatsX 3s cubic-bezier(.1, 1, 0, 1) forwards;
   }
+  .er-stat-icon { left: 16px; width: 48px; height: 48px; }
+  .er-stat-icon svg { width: 24px; height: 24px; }
 }
 @media (max-width: 560px) {
   .er-stat-section .stat-number { font-size: 40px; }
