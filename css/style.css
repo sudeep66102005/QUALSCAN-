@@ -498,17 +498,40 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .hero-tagline .hero-sub { animation-delay: 0.5s; }
 @media (prefers-reduced-motion: reduce) { .hero-tagline > * { opacity: 1; animation: none; } }
 @media (max-width: 640px) {
-  /* Mobile hero: full-bleed video with headline centered over it — envrad style */
-  .hero--clean { min-height: 100vh; align-items: center; }
-  /* Even dark vignette so centered text is readable over any part of the video */
-  .hero--clean .hero-media::after {
+  /* Mobile hero: show the FULL video (no crop) at top, Qualscan tagline below it */
+  .hero--clean {
+    min-height: 0;
+    height: auto;
     display: block;
-    background: linear-gradient(to bottom, rgba(2,15,20,0.55) 0%, rgba(2,15,20,0.30) 45%, rgba(2,15,20,0.65) 100%);
+    background: #001016;
+    padding-top: 64px; /* clear the fixed header */
   }
-  .hero-tagline-wrap { padding: 0; }
+  .hero--clean .hero-fallback { display: none; }
+  .hero--clean .hero-media::after { display: none; }
+  .hero--clean .hero-media {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    background: #001016;
+  }
+  .hero--clean .hero-media video {
+    position: relative;
+    width: 100%;
+    height: auto;          /* natural aspect → whole video frame visible */
+    object-fit: contain;
+    animation: none;
+    display: block;
+  }
+  .hero-tagline-wrap {
+    position: relative;
+    padding: 30px 20px 46px;
+    text-align: center;
+  }
   .hero-tagline { max-width: 100%; text-align: center; margin: 0 auto; }
-  .hero-tagline h1 { font-size: clamp(30px, 8.5vw, 46px); line-height: 1.12; }
-  .hero-tagline .hero-sub { font-size: clamp(15px, 4.5vw, 20px); }
+  .hero-tagline h1 { text-shadow: none; font-size: clamp(28px, 7.5vw, 42px); }
+  .hero-tagline .hero-sub { text-shadow: none; }
+  .hero--clean .scroll-cue { display: none; }
 }
 
 /* ============================================================
