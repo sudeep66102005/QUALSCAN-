@@ -636,6 +636,66 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   box-shadow: 0 14px 34px rgba(21,101,216,0.45);
 }
 .parallax-content p { font-size: clamp(16px, 2vw, 19px); color: rgba(255,255,255,0.85); max-width: 540px; }
+
+/* Cardiac ECG line (transparent background) */
+.ecg-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 120px;
+  margin: 24px 0 6px;
+  overflow: hidden;
+}
+.ecg-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 24px 0;
+  background-image:
+    linear-gradient(rgba(70,247,238,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70,247,238,.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: .45;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+}
+.ecg-wrap svg { position: relative; width: 100%; height: 100%; overflow: visible; }
+.ecg-glow, .ecg-line { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ecg-glow { stroke: #46f7ee; stroke-width: 10; opacity: .18; filter: blur(8px); }
+.ecg-line {
+  stroke: #46f7ee; stroke-width: 3.5;
+  filter: drop-shadow(0 0 8px #46f7ee);
+  stroke-dasharray: 1000; stroke-dashoffset: 1000;
+  animation: drawLine 2.8s ease-in-out infinite;
+}
+.pulse-dot {
+  fill: #46f7ee;
+  filter: drop-shadow(0 0 10px #46f7ee);
+  offset-path: path("M20 78 H110 L126 78 L140 58 L156 88 L172 78 H235 L248 78 L260 105 L278 28 L296 104 L315 78 H410 L432 78 L455 48 L482 78 H520 L538 72 L554 78 H640 L660 78");
+  animation: moveDot 2.8s ease-in-out infinite;
+}
+.scan-light {
+  position: absolute; top: 50%; left: 0;
+  width: 120px; height: 90px;
+  transform: translate(-130px, -50%);
+  background: linear-gradient(90deg, transparent, rgba(70,247,238,.3), transparent);
+  filter: blur(18px);
+  animation: scan 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes drawLine { to { stroke-dashoffset: 0; } }
+@keyframes moveDot { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+@keyframes scan { to { transform: translate(calc(100vw + 130px), -50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ecg-line, .pulse-dot, .scan-light { animation: none; }
+  .ecg-line { stroke-dashoffset: 0; }
+}
+
+/* Mobile: text on top of the section */
+@media (max-width: 768px) {
+  .parallax-section { align-items: flex-start; min-height: 0; padding: 100px 0 64px; }
+  .parallax-content > div { max-width: 100%; }
+  .ecg-wrap { margin-inline: auto; }
+}
 .eyebrow--light { color: var(--c-teal-light); }
 .eyebrow--light::before { background: var(--c-teal-light); }
 
