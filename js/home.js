@@ -200,3 +200,54 @@
     success.classList.add("show");
   });
 })();
+
+
+
+/* ============================================================
+   HERO VIDEO — force autoplay on mobile (iOS / Android)
+   Mobile browsers block autoplay unless muted + playsinline,
+   and sometimes still need an explicit play() call.
+   ============================================================ */
+(function () {
+  var video = document.getElementById("heroVideo");
+  if (!video) return;
+
+  // Ensure muted (required for mobile autoplay) and inline playback
+  video.muted = true;
+  video.setAttribute("muted", "");
+  video.playsInline = true;
+
+  function tryPlay() {
+    var p = video.play();
+    if (p && typeof p.then === "function") {
+      p.catch(function () {
+        // Autoplay was blocked — retry after the first user interaction
+        var resume = function () {
+          video.muted = true;
+          video.play().catch(function () {});
+          document.removeEventListener("touchstart", resume);
+          document.removeEventListener("click", resume);
+          document.removeEventListener("scroll", resume);
+        };
+        document.addEventListener("touchstart", resume, { once: true, passive: true });
+        document.addEventListener("click", resume, { once: true });
+        document.addEventListener("scroll", resume, { once: true, passive: true });
+      });
+    }
+  }
+
+  if (video.readyState >= 2) {
+    tryPlay();
+  } else {
+    video.addEventListener("loadeddata", tryPlay, { once: true });
+    video.addEventListener("canplay", tryPlay, { once: true });
+  }
+
+  // Re-attempt when tab becomes visible again
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden && video.paused) {
+      video.muted = true;
+      video.play().catch(function () {});
+    }
+  });
+})();
