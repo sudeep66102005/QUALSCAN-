@@ -1260,45 +1260,49 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 
 
 /* ============================================================
-   GLOBAL PRESENCE — world map
+   GLOBAL PRESENCE — world map (white section)
    ============================================================ */
+.world-section { background: #fff; }
+.world-section .eyebrow { color: var(--c-teal); }
+.world-section .eyebrow::before { background: var(--c-teal); }
+.world-section .section-title { color: var(--c-ink); }
 .world-map {
   max-width: 1000px;
-  margin: 48px auto 0;
+  margin: 44px auto 0;
   position: relative;
 }
 .world-map img {
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 24px 60px rgba(0,0,0,0.4));
 }
-.world-regions {
+.world-stats {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px;
-  margin-top: 36px;
+  gap: 40px 72px;
+  margin-top: 52px;
 }
-.region-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: #fff;
+.world-stat { text-align: center; }
+.world-stat__num {
+  font-size: clamp(40px, 6vw, 66px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.world-stat__label {
+  margin-top: 10px;
   font-size: 15px;
+  color: var(--c-body);
   font-weight: 500;
-  letter-spacing: 0.02em;
 }
-.region-pill .dot {
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--c-teal-light);
-  box-shadow: 0 0 0 0 rgba(79,214,230,0.6);
-  animation: mapSignalPulse 2.4s ease-in-out infinite;
+@media (max-width: 600px) {
+  .world-map { margin-top: 30px; }
+  .world-stats { gap: 30px 44px; margin-top: 38px; }
 }
 
 /* ============================================================
