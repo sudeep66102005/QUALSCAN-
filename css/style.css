@@ -692,7 +692,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 
 /* Mobile: text on top of the section */
 @media (max-width: 768px) {
-  .parallax-section { align-items: flex-start; min-height: 0; padding: 100px 0 64px; }
+  .parallax-section { align-items: flex-start; min-height: 0; padding: 22px 0 40px; }
   .parallax-content > div { max-width: 100%; }
   .ecg-wrap { margin-inline: auto; }
 }
