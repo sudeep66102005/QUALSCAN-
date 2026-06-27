@@ -205,6 +205,22 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .hero--clean .hero-tagline-wrap { position: relative; z-index: 2; width: 100%; padding: 34px 0 48px; }
 .hero--clean .hero-tagline { text-align: left; }
 .hero--clean .scroll-cue { display: none; }
+/* Logo shown only on mobile, below the video, on a black band */
+.hero-logo-mobile { display: none; }
+@media (max-width: 768px) {
+  .hero-logo-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #080808;
+    padding: 26px 24px;
+  }
+  .hero-logo-mobile img {
+    max-width: 220px;
+    width: 70%;
+    height: auto;
+  }
+}
 .hero .container { position: relative; z-index: 2; padding-top: 90px; }
 .hero-content { max-width: 720px; }
 /* Staggered entrance on load */
