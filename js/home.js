@@ -251,3 +251,49 @@
     }
   });
 })();
+
+
+
+/* ============================================================
+   STAGGERED STATS REVEAL — drop-down blocks (replays on scroll)
+   ============================================================ */
+(function () {
+  var section = document.querySelector(".er-stat-section");
+  if (!section) return;
+  var wraps = Array.prototype.slice.call(section.querySelectorAll(".er-stat-wrap"));
+  if (!wraps.length) return;
+
+  var visibleClass = "animate-in";
+  var stagger = 120;
+  var timers = [];
+
+  function clearPending() {
+    timers.forEach(function (t) { window.clearTimeout(t); });
+    timers = [];
+  }
+  function addStaggered() {
+    clearPending();
+    wraps.forEach(function (el, index) {
+      timers.push(window.setTimeout(function () {
+        el.classList.add(visibleClass);
+      }, index * stagger));
+    });
+  }
+  function removeAll() {
+    clearPending();
+    wraps.forEach(function (el) { el.classList.remove(visibleClass); });
+  }
+  function updateStatsReveal() {
+    var rect = section.getBoundingClientRect();
+    var isInRange = rect.top <= window.innerHeight * 0.8 && rect.bottom > 0;
+    if (isInRange) {
+      if (!wraps[0].classList.contains(visibleClass)) addStaggered();
+    } else {
+      removeAll();
+    }
+  }
+
+  updateStatsReveal();
+  window.addEventListener("scroll", updateStatsReveal, { passive: true });
+  window.addEventListener("resize", updateStatsReveal);
+})();
