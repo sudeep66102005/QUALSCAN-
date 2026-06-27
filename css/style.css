@@ -860,24 +860,6 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   overflow: hidden;
   padding: 20px 0 0;
 }
-/* Soft edge fade */
-.spec-carousel::before,
-.spec-carousel::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 120px;
-  z-index: 2;
-  pointer-events: none;
-}
-.spec-carousel::before {
-  left: 0;
-  background: linear-gradient(to right, var(--c-bg), transparent);
-}
-.spec-carousel::after {
-  right: 0;
-  background: linear-gradient(to left, var(--c-bg), transparent);
-}
 
 .spec-track {
   display: flex;
