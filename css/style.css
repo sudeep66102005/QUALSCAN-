@@ -1257,3 +1257,104 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
     animation: none;
   }
 }
+
+
+/* ============================================================
+   GLOBAL PRESENCE — world map
+   ============================================================ */
+.world-map {
+  max-width: 1000px;
+  margin: 48px auto 0;
+  position: relative;
+}
+.world-map img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 24px 60px rgba(0,0,0,0.4));
+}
+.world-regions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 36px;
+}
+.region-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.region-pill .dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--c-teal-light);
+  box-shadow: 0 0 0 0 rgba(79,214,230,0.6);
+  animation: mapSignalPulse 2.4s ease-in-out infinite;
+}
+
+/* ============================================================
+   KINETIC MARQUEE — large animated statement
+   ============================================================ */
+.marquee-section {
+  background: var(--c-bg-dark);
+  padding: 70px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 100%;
+  animation: marqueeScroll 28s linear infinite;
+}
+.marquee--reverse .marquee-track {
+  animation-direction: reverse;
+  animation-duration: 34s;
+}
+.marquee-track span {
+  font-size: clamp(34px, 7vw, 84px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #fff;
+}
+.marquee-track .outline {
+  color: transparent;
+  -webkit-text-stroke: 1.4px rgba(255,255,255,0.55);
+}
+.marquee-track .sep {
+  color: var(--c-teal-light);
+  font-weight: 400;
+  font-size: clamp(22px, 4vw, 44px);
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* Mobile world map */
+@media (max-width: 640px) {
+  .world-map { margin-top: 32px; }
+  .region-pill { font-size: 13px; padding: 8px 16px; }
+  .marquee-section { padding: 44px 0; }
+}
