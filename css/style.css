@@ -100,14 +100,14 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease), padding 0.35s var(--ease);
   padding: 18px 0;
-  /* Glassmorphism: frosted semi-transparent background with blur */
-  background: rgba(255, 255, 255, 0.10);
+  /* Glassmorphism: blur only, no color tint */
+  background: transparent;
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   backdrop-filter: blur(16px) saturate(140%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 .site-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.72);
+  background: transparent;
   -webkit-backdrop-filter: blur(18px) saturate(150%);
   backdrop-filter: blur(18px) saturate(150%);
   box-shadow: var(--shadow-sm);
