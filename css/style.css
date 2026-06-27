@@ -619,6 +619,10 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .parallax-content { position: relative; z-index: 2; }
 .parallax-content > div { max-width: 620px; }
 .parallax-content h2 { color: #fff; font-size: clamp(30px, 5vw, 56px); font-weight: 200; letter-spacing: -0.01em; margin-bottom: 0; line-height: 1.18; }
+.parallax-cta {
+  margin-top: 30px;
+  box-shadow: 0 14px 34px rgba(21,101,216,0.45);
+}
 .parallax-content p { font-size: clamp(16px, 2vw, 19px); color: rgba(255,255,255,0.85); max-width: 540px; }
 .eyebrow--light { color: var(--c-teal-light); }
 .eyebrow--light::before { background: var(--c-teal-light); }
