@@ -118,7 +118,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 }
 .brand-mark svg { width: 22px; height: 22px; }
 /* Logo shown directly on the teal bar — no white box */
-.brand-mark--logo { background: transparent; padding: 0; overflow: visible; box-shadow: none; width: 54px; height: 54px; border-radius: 0; }
+.brand-mark--logo { background: transparent; padding: 0; overflow: visible; box-shadow: none; width: 76px; height: 76px; border-radius: 0; }
 .brand-mark--logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .brand small { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.72; }
 
