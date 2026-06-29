@@ -563,8 +563,8 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .anniversary img { width: 66px; height: 66px; }
   .anniversary strong, .anniversary span { font-size: 22px; line-height: 1.05; }
   .anniversary span { font-size: 22px; }
-  .hero-rule { width: 100%; height: 1px; min-height: 0; align-self: auto; margin: 20px 0 14px; }
-  .hero-content p { max-width: 320px; font-size: 12px; line-height: 1.24; }
+  .hero-rule { width: 100%; height: 1px; min-height: 0; align-self: auto; margin: 6px 0 10px;  }
+  .hero-content p { max-width: 320px; font-size: 13px; line-height: 1.25; margin: 0; }
 }
 
 /* ============================================================
