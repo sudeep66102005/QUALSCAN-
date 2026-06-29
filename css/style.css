@@ -549,10 +549,15 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   }
   /* Content flows below the video on the dark background */
   .hero-content {
-    position: static;
-    left: auto; right: auto; bottom: auto;
-    display: block;
-    padding: 32px 24px 46px;
+     position: relative;
+     left: auto;
+     right: auto;
+     bottom: auto;
+     display: block;
+     margin-top: -118px;
+     padding: 0 24px 38px;
+     z-index: 3;
+};
   }
   .anniversary { grid-template-columns: 76px 1fr; }
   .anniversary img { width: 76px; height: 76px; }
