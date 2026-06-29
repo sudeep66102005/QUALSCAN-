@@ -525,7 +525,10 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .hero--clean { min-height: 0; height: auto; display: block; overflow: hidden; background: var(--c-bg-dark); }
   .hero--clean .hero-media {
     position: relative; inset: auto;
-    width: 100%; height: 60vh;
+    width: 100%;
+    height: 78svh;
+    min-height: 500px;
+    max-height: 640px;
     overflow: hidden;
   }
   .hero--clean .hero-media video {
