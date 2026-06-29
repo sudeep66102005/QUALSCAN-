@@ -647,7 +647,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .purpose-link:hover .arrow { transform: translateX(6px); }
 
 /* ============================================================
-   PARALLAX image section
+   PARALLAX image sectionbf
    ============================================================ */
 .parallax-section { position: relative; min-height: 86vh; display: flex; align-items: center; overflow: hidden; color: #fff; }
 .parallax-bg {
