@@ -564,7 +564,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .anniversary strong, .anniversary span { font-size: 22px; line-height: 1.05; }
   .anniversary span { font-size: 22px; }
   .hero-rule { width: 100%; height: 1px; min-height: 0; align-self: auto; margin: 20px 0 14px; }
-  .hero-content p { max-width: 320px; font-size: 15px; line-height: 1.45; }
+  .hero-content p { max-width: 320px; font-size: 13px; line-height: 1.28; }
 }
 
 /* ============================================================
