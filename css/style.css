@@ -129,21 +129,14 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .brand small { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.72; }
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-links a {
-  font-size: 16px; font-weight: 700; color: #fff;
-  padding: 12px 22px; border-radius: 999px; transition: all 0.25s var(--ease);
-  background: var(--grad-primary);
-  box-shadow: 0 10px 26px rgba(0, 78, 89, 0.35);
+ background: #fff;
+ color: var(--c-ink);
 }
 .is-scrolled .nav-links a, .header--solid .nav-links a { color: var(--c-ink); }
 .nav-links a:hover, .nav-links a.active { color: var(--c-teal); }
 .is-scrolled .nav-links a.active, .header--solid .nav-links a.active { color: var(--c-blue); }
 .nav-cta { margin-left: 14px; }
-.nav-cta .btn--primary {
-  background: #fff;
-  color: var(--c-blue);
-  border-color: rgba(24, 179, 199, 0.55);
-  box-shadow: 0 10px 26px rgba(255, 255, 255, 0.24);
-}
+
 .nav-toggle {
   display: none; width: 44px; height: 44px; border: none; background: transparent;
   cursor: pointer; flex-direction: column; gap: 5px; align-items: center; justify-content: center;
