@@ -65,8 +65,8 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 
 .eyebrow {
   display: inline-block;
-  background: #18b3c7;
-  color: #ffffff;
+  background: #16a085;
+  color: white;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 2px;
@@ -743,8 +743,8 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .parallax-content > div { max-width: 100%; }
   .ecg-wrap { margin-inline: auto; }
 }
-.eyebrow--light { color: var(--c-teal-light); }
-.eyebrow--light::before { background: var(--c-teal-light); }
+.eyebrow--light { color: white; }
+.eyebrow--light::before { display: none; }
 
 /* ============================================================
    HEALTHCARE STATISTICS — premium scroll-triggered stat cards
@@ -858,8 +858,8 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 }
 .map-carousel-section .section-title { color: #fff; }
 .map-carousel-section .section-lead { color: rgba(255,255,255,0.7); }
-.map-carousel-section .eyebrow { color: var(--c-teal-light); }
-.map-carousel-section .eyebrow::before { background: var(--c-teal-light); }
+.map-carousel-section .eyebrow { color: white; }
+.map-carousel-section .eyebrow::before { display: none; }
 
 .map-carousel {
   position: relative;
