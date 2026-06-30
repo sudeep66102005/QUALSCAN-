@@ -96,65 +96,54 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 /* ============================================================
    Header / Navigation
    ============================================================ */
-.nav-links { display: flex; align-items: center; gap: 6px; }
-.nav-links a {
-  font-size: 16px; font-weight: 700; color: var(--c-ink);
-  padding: 10px 18px; border-radius: 999px; transition: all 0.25s var(--ease);
-  background: #fff;
-  box-shadow: 0 8px 22px rgba(0, 33, 41, 0.14);
-}
-.is-scrolled .nav-links a, .header--solid .nav-links a { color: var(--c-ink); }
-.nav-links a:hover { color: var(--c-blue); transform: translateY(-2px); }
-.nav-links a.active,
-.is-scrolled .nav-links a.active,
-.header--solid .nav-links a.active {
-  color: #fff;
-  background: var(--c-blue);
-  box-shadow: 0 10px 26px rgba(0, 78, 89, 0.28);
-}
-.nav-links { display: flex; align-items: center; gap: 6px; }
-
-.nav-links a {
-  font-size: 16px; font-weight: 700; color: var(--c-ink);
-  padding: 10px 16px; border-radius: 999px; transition: all 0.25s var(--ease);
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease), padding 0.35s var(--ease);
+  padding: 16px 0;
+  /* Glassmorphism: semi-transparent + blurred, no color tint */
   background: transparent;
-  box-shadow: none;
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
-
-.is-scrolled .nav-links a, .header--solid .nav-links a { color: var(--c-ink); }
-
-.nav-links a:hover,
-.nav-links a.active,
-.is-scrolled .nav-links a.active,
-.header--solid .nav-links a.active {
-  color: var(--c-blue);
-  background: rgba(24, 179, 199, 0.14);
+.site-header.is-scrolled {
+  background: transparent;
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: var(--shadow-sm);
+  border-bottom-color: rgba(0, 78, 89, 0.10);
+  padding: 12px 0;
 }
+.nav { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 24px; letter-spacing: 0.02em; color: #fff; text-transform: uppercase; }
+.is-scrolled .brand, .header--solid .brand { color: var(--c-navy); }
+.brand-mark {
+  width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center;
+  background: var(--grad-primary); color: #fff; box-shadow: 0 8px 18px rgba(0,78,89,0.4);
+}
+.brand-mark svg { width: 22px; height: 22px; }
 /* Logo shown directly on the teal bar — no white box */
 
-.brand-mark--logo {
-  background: transparent;
-  padding: 0;
-  overflow: visible;
-  box-shadow: none;
-  width: 52px;
-  height: 52px;
-  border-radius: 0;
-}
+.brand-mark--logo { background: transparent; padding: 0; overflow: visible; box-shadow: none; width: 76px; height: 76px; border-radius: 0; }
 .brand-mark--logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .brand small { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.72; }
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-links a {
-  font-size: 16px; font-weight: 700; color: var(--c-ink);
-  padding: 10px 18px; border-radius: 999px; transition: all 0.25s var(--ease);
-  background: #fff;
-  box-shadow: 0 8px 22px rgba(0, 33, 41, 0.14);
+  font-size: 16px; font-weight: 700; color: #fff;
+  padding: 12px 22px; border-radius: 999px; transition: all 0.25s var(--ease);
+  background: var(--grad-primary);
+  box-shadow: 0 10px 26px rgba(0, 78, 89, 0.35);
 }
 .is-scrolled .nav-links a, .header--solid .nav-links a { color: var(--c-ink); }
 .nav-links a:hover, .nav-links a.active { color: var(--c-teal); }
 .is-scrolled .nav-links a.active, .header--solid .nav-links a.active { color: var(--c-blue); }
 .nav-cta { margin-left: 14px; }
-
+.nav-cta .btn--primary {
+  background: #fff;
+  color: var(--c-blue);
+  border-color: rgba(24, 179, 199, 0.55);
+  box-shadow: 0 10px 26px rgba(255, 255, 255, 0.24);
+}
 .nav-toggle {
   display: none; width: 44px; height: 44px; border: none; background: transparent;
   cursor: pointer; flex-direction: column; gap: 5px; align-items: center; justify-content: center;
