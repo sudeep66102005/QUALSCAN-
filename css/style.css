@@ -123,10 +123,36 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 }
 .brand-mark svg { width: 22px; height: 22px; }
 /* Logo shown directly on the teal bar — no white box */
-.brand-mark--logo { background: transparent; padding: 0; overflow: visible; box-shadow: none; width: 76px; height: 76px; border-radius: 0; }
-.brand-mark--logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.brand small { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.72; }
+.brand-mark--logo {
+  background: transparent;
+  padding: 0;
+  overflow: visible;
+  box-shadow: none;
+  width: 76px;
+  height: 76px;
+  border-radius: 0;
+}
 
+.brand-mark--logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.brand small {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 1;
+  background: #fff;
+  color: var(--c-navy);
+  padding: 3px 8px;
+  border-radius: 999px;
+  width: fit-content;
+}
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-links a {
   font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.9);
