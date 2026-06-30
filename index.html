@@ -367,22 +367,27 @@
 
   <script src="js/main.js?v=18"></script>
   <script src="js/home.js?v=34"></script>
-  
 <script>
   document.querySelectorAll(".stat-number[data-target]").forEach(counter => {
     const target = Number(counter.dataset.target);
     const suffix = counter.dataset.suffix || "";
-    let current = 0;
+    const duration = 2000;
+    const startTime = performance.now();
 
-    const timer = setInterval(() => {
-      current++;
+    function updateCounter(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const current = Math.floor(progress * target);
+
       counter.textContent = current + suffix;
 
-      if (current >= target) {
-        clearInterval(timer);
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
         counter.textContent = target + suffix;
       }
-    }, 25);
+    }
+
+    requestAnimationFrame(updateCounter);
   });
 </script>
 </body>
