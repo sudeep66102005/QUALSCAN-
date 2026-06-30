@@ -1368,8 +1368,8 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
    GLOBAL PRESENCE — world map (white section)
    ============================================================ */
 .world-section { background: #fff; }
-.world-section .eyebrow { color: var(--c-teal); }
-.world-section .eyebrow::before { background: var(--c-teal); }
+.world-section .eyebrow { color: #ffffff; }
+.world-section .eyebrow::before { display: none; }
 .world-section .section-title { color: var(--c-ink); }
 .world-map {
   max-width: 1000px;
