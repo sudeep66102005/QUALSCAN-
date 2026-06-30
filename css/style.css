@@ -65,8 +65,8 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 
 .eyebrow {
   display: inline-block;
-  background: #16a085;
-  color: white;
+  background: #18b3c7;
+  color: #ffffff;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 2px;
@@ -79,7 +79,6 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .eyebrow::before {
   display: none;
 }
-
 .section-title { font-size: clamp(28px, 4vw, 42px); margin-bottom: 18px; letter-spacing: -0.02em; }
 .section-lead { font-size: 18px; color: var(--c-body); max-width: 720px; }
 .section-head { margin-bottom: 56px; }
