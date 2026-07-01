@@ -1517,10 +1517,11 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   text-align: center;
   will-change: transform;
 }
+
 .er-stat-wrap.stat-1 { height: clamp(215px, 30vh, 245px); }
-.er-stat-wrap.stat-2 { height: clamp(215px, 30vh, 245px); }
-.er-stat-wrap.stat-3 { height: clamp(260px, 37vh, 300px); }
-.er-stat-wrap.stat-4 { height: clamp(305px, 44vh, 355px); }
+.er-stat-wrap.stat-2 { height: clamp(260px, 37vh, 300px); }
+.er-stat-wrap.stat-3 { height: clamp(305px, 44vh, 355px); }
+.er-stat-wrap.stat-4 { height: clamp(350px, 51vh, 410px); }
 /* Stat card icon — top center */
 .er-stat-wrap { position: relative; }
 .er-stat-icon {
