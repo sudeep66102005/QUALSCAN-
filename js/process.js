@@ -1,4 +1,4 @@
-
+<script>
     const steps = [
       {
         title: "Scans uploaded to the cloud",
@@ -77,62 +77,20 @@ function readScrollProgress() {
   }
 }
 
-
-   let active = -1;
-let autoTimer = null;
-let userStopped = false;
-
-function setStep(index) {
-  if (index === active) return;
-
-  active = index;
-  const step = steps[index];
-
-  segments.forEach((segment, i) => segment.classList.toggle("is-active", i === index));
-  labels.forEach((label, i) => label.classList.toggle("label-active", i === index));
-  [...dots.children].forEach((dot, i) => dot.classList.toggle("is-active", i === index));
-
-  title.textContent = step.title;
-  text.textContent = step.text;
-  photo.innerHTML = art[step.art];
-
-  panel.style.animation = "none";
-  void panel.offsetWidth;
-  panel.style.animation = "";
-}
-
-function stopAutoAndShow(index) {
-  userStopped = true;
-  clearInterval(autoTimer);
+function updateByScroll() {
+  smoothProgress += (targetProgress - smoothProgress) * 0.08;
+  const index = Math.min(steps.length - 1, Math.round(smoothProgress * (steps.length - 1)));
   setStep(index);
+
+  if (Math.abs(targetProgress - smoothProgress) > 0.001) {
+    requestAnimationFrame(updateByScroll);
+  } else {
+    smoothProgress = targetProgress;
+    ticking = false;
+  }
 }
-
-steps.forEach((_, index) => {
-  const dot = document.createElement("button");
-  dot.type = "button";
-  dot.setAttribute("aria-label", `Go to step ${index + 1}`);
-  dot.addEventListener("click", () => stopAutoAndShow(index));
-  dots.appendChild(dot);
-});
-
-segments.forEach((segment, index) => {
-  segment.addEventListener("click", () => stopAutoAndShow(index));
-});
-
-labels.forEach((label, index) => {
-  label.addEventListener("click", () => stopAutoAndShow(index));
-});
-
-function startAutoProcess() {
-  autoTimer = setInterval(() => {
-    if (userStopped) return;
-    const next = (active + 1) % steps.length;
-    setStep(next);
-  }, 2500);
-}
-
-setStep(0);
-startAutoProcess();
+   window.addEventListener("scroll", readScrollProgress, { passive: true });
+   window.addEventListener("resize", readScrollProgress);
     document.getElementById("year").textContent = new Date().getFullYear();
     setStep(0);
     readScrollProgress();
@@ -143,7 +101,7 @@ startAutoProcess();
     bottomCue?.classList.toggle("is-hidden", atBottom);
   }
 
- 
+  window.addEventListener("scroll", hideCueAtBottom, { passive: true });
   window.addEventListener("resize", hideCueAtBottom);
   hideCueAtBottom();
-<script src="js/main.js"></script>
+</script>
