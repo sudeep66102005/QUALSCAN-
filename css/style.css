@@ -2107,5 +2107,23 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .page-hero {
     padding-top: 118px;
   }
+       
+  .process-photo {
+    width: min(155px, 40vw);
+  }
+
+  .process-panel h3 {
+    font-size: clamp(28px, 7vw, 34px);
+    line-height: 1.12;
+    font-weight: 800;
+  }
+
+  .process-panel p {
+    grid-column: 1 / -1;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
   }
       
