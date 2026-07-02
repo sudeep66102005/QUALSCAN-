@@ -97,13 +97,16 @@
     }
   }
 
-const bottomCue = document.querySelector(".scroll-down-cue--bottom");
+  /* ---- Footer year ---- */
+  var y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
 
-function hideCueAtBottom() {
-  const atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 20;
-  bottomCue?.classList.toggle("is-hidden", atBottom);
-}
-
-window.addEventListener("scroll", hideCueAtBottom, { passive: true });
-window.addEventListener("resize", hideCueAtBottom);
-hideCueAtBottom();
+  /* ---- Mark active nav link by path ---- */
+  var path = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-links a").forEach(function (a) {
+    var href = a.getAttribute("href");
+    if (href === path || (path === "index.html" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+})();
