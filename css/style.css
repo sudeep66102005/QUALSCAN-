@@ -1920,7 +1920,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .process-stage {
     grid-template-columns: 1fr;
   }
-}
+
       .process-stage {
         grid-template-columns: 1fr;
         align-content: start;
