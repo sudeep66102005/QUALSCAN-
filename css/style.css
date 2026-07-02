@@ -2000,32 +2000,29 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
         height: 760vh;
       }
 
-      .process-stage {
-        top: 0;
-        min-height: 100vh;
-        gap: 0;
-        padding: 30px 0 16px;
-      }
+       .process-stage {
+    top: 86px;
+    min-height: calc(100vh - 86px);
+    padding: 0 0 10px;
+    gap: 6px;
+    align-content: start;
+  }
 
-      .process-wheel {
-        width: min(calc(100vw - 38px), 366px);
-      }
+  .process-wheel {
+    width: min(calc(100vw - 54px), 340px);
+  }
 
-      .process-panel {
-        margin-top: 4px;
-        grid-template-columns: minmax(108px, 0.72fr) minmax(0, 1.28fr);
-        column-gap: 14px;
-      }
+  .process-panel {
+    margin-top: 0;
+  }
 
-      .process-photo {
-        width: min(118px, 32vw);
-      }
+  .process-photo {
+    width: min(104px, 28vw);
+  }
 
-      .process-panel h3 {
-        font-size: clamp(17px, 5vw, 22px);
-        line-height: 1.14;
-      }
-
+  .process-panel h3 {
+    font-size: clamp(16px, 4.5vw, 20px);
+  }
       .accent-line {
         display: none;
       }
