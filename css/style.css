@@ -2191,3 +2191,22 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   visibility: hidden;
   pointer-events: none;
 }
+.process-scroll {
+  height: auto;
+}
+
+.process-stage {
+  position: relative;
+  top: auto;
+  min-height: auto;
+}
+
+.segment,
+.segment-label,
+.process-dots button {
+  cursor: pointer;
+}
+
+.segment-label {
+  pointer-events: auto;
+}
