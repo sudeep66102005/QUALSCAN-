@@ -143,6 +143,7 @@ startAutoProcess();
     bottomCue?.classList.toggle("is-hidden", atBottom);
   }
 
-  window.addEventListener("scroll", hideCueAtBottom, { passive: true });
+ 
   window.addEventListener("resize", hideCueAtBottom);
   hideCueAtBottom();
+<script src="js/main.js"></script>
