@@ -72,17 +72,36 @@
       panel.style.animation = "";
     }
 
-    function updateByScroll() {
-      const rect = processScroll.getBoundingClientRect();
-      const total = processScroll.offsetHeight - window.innerHeight;
-      const progress = Math.min(1, Math.max(0, -rect.top / total));
-      const index = Math.min(steps.length - 1, Math.round(progress * (steps.length - 1)));
-      setStep(index);
-    }
+   let targetProgress = 0;
+let smoothProgress = 0;
+let ticking = false;
 
-    window.addEventListener("scroll", updateByScroll, { passive: true });
-    window.addEventListener("resize", updateByScroll);
+function readScrollProgress() {
+  const rect = processScroll.getBoundingClientRect();
+  const total = processScroll.offsetHeight - window.innerHeight;
+  targetProgress = Math.min(1, Math.max(0, -rect.top / total));
+
+  if (!ticking) {
+    ticking = true;
+    requestAnimationFrame(updateByScroll);
+  }
+}
+
+function updateByScroll() {
+  smoothProgress += (targetProgress - smoothProgress) * 0.08;
+  const index = Math.min(steps.length - 1, Math.round(smoothProgress * (steps.length - 1)));
+  setStep(index);
+
+  if (Math.abs(targetProgress - smoothProgress) > 0.001) {
+    requestAnimationFrame(updateByScroll);
+  } else {
+    smoothProgress = targetProgress;
+    ticking = false;
+  }
+}
+   window.addEventListener("scroll", readScrollProgress, { passive: true });
+   window.addEventListener("resize", readScrollProgress);
     document.getElementById("year").textContent = new Date().getFullYear();
     setStep(0);
-    updateByScroll();
+    readScrollProgress();
   </script>
