@@ -1377,6 +1377,50 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   .spec-slide:nth-child(odd) .spec-slide__img,
   .spec-slide:nth-child(even) .spec-slide__img { animation: none; }
 }
+.scroll-down-cue {
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(24, 179, 199, 0.45);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin: 40px auto 54px;
+  color: #18b3c7;
+  background: rgba(0, 78, 89, 0.08);
+  box-shadow: 0 0 24px rgba(24, 179, 199, 0.2), inset 0 0 18px rgba(24, 179, 199, 0.12);
+}
+
+.scroll-down-cue span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-right: 4px solid currentColor;
+  border-bottom: 4px solid currentColor;
+  transform: rotate(45deg);
+  animation: scrollCueMove 1.5s ease-in-out infinite;
+}
+
+.scroll-down-cue span:first-child {
+  top: 21px;
+}
+
+.scroll-down-cue span:last-child {
+  top: 33px;
+  animation-delay: 0.18s;
+}
+
+@keyframes scrollCueMove {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateY(-4px) rotate(45deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(4px) rotate(45deg);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .map-slide__img::before,
