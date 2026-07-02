@@ -110,3 +110,7 @@
     }
   });
 })();
+<a href="#top" class="scroll-down-cue scroll-down-cue--bottom" aria-label="Back to top">
+  <span></span>
+  <span></span>
+</a>
