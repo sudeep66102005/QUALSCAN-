@@ -2177,6 +2177,17 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 
   }
 .scroll-down-cue--bottom {
-  margin: 40px auto 54px;
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 999;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-      
+
+.scroll-down-cue--bottom.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
