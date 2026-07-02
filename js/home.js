@@ -297,3 +297,13 @@
   window.addEventListener("scroll", updateStatsReveal, { passive: true });
   window.addEventListener("resize", updateStatsReveal);
 })();
+const bottomCue = document.querySelector(".scroll-down-cue--bottom");
+
+function hideCueAtBottom() {
+  const atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 20;
+  bottomCue?.classList.toggle("is-hidden", atBottom);
+}
+
+window.addEventListener("scroll", hideCueAtBottom, { passive: true });
+window.addEventListener("resize", hideCueAtBottom);
+hideCueAtBottom();
