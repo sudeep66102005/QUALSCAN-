@@ -1,4 +1,4 @@
-<script>
+
   const steps = [
     {
       title: "Scans uploaded to the cloud",
@@ -116,4 +116,3 @@
   window.addEventListener("scroll", hideCueAtBottom, { passive: true });
   window.addEventListener("resize", hideCueAtBottom);
   hideCueAtBottom();
-</script>
