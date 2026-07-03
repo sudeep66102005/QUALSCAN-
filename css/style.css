@@ -1696,7 +1696,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
     }
 
     .process-wheel {
-      width: min(74vw, 800px, calc((100vh - 100px) * 1.14));
+      width: min(78vw, 830px, calc((100vh - 100px) * 1.2));
       min-width: 0;
       aspect-ratio: 1;
       position: relative;
