@@ -109,4 +109,16 @@
       a.classList.add("active");
     }
   });
+
+  /* ---- Decorative scroll cue: purely visual, hides near page bottom ---- */
+  var bottomCue = document.querySelector(".scroll-down-cue--bottom");
+  if (bottomCue) {
+    var hideCueAtBottom = function () {
+      var atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 20;
+      bottomCue.classList.toggle("is-hidden", atBottom);
+    };
+    window.addEventListener("scroll", hideCueAtBottom, { passive: true });
+    window.addEventListener("resize", hideCueAtBottom);
+    hideCueAtBottom();
+  }
 })();

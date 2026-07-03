@@ -2216,11 +2216,11 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 
 /* ============================================================
    ABOUT PAGE — vibrant highlight cards
-   Scoped to .about-card so other pages' .card styling is untouched
+   Scoped to .vibe-card so other pages' .card styling is untouched
    ============================================================ */
 .about-highlights { gap: 30px; }
 
-.about-card {
+.vibe-card {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--c-line);
@@ -2231,7 +2231,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 }
 
 /* colored top accent bar */
-.about-card::before {
+.vibe-card::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
@@ -2240,7 +2240,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 }
 
 /* soft colored glow blob in the corner */
-.about-card::after {
+.vibe-card::after {
   content: "";
   position: absolute;
   right: -60px;
@@ -2255,14 +2255,14 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);
 }
 
-.about-card .icon {
+.vibe-card .icon {
   background: var(--ac-grad);
   color: #fff;
   box-shadow: 0 10px 22px var(--ac-shadow);
   transition: transform 0.45s var(--ease);
 }
 
-.about-card h3 {
+.vibe-card h3 {
   background: var(--ac-grad);
   -webkit-background-clip: text;
   background-clip: text;
@@ -2271,13 +2271,13 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   font-weight: 800;
 }
 
-.about-card .feature-list li {
+.vibe-card .feature-list li {
   font-weight: 500;
   color: var(--c-ink);
 }
 
 /* colored check badges */
-.about-card .feature-list li svg {
+.vibe-card .feature-list li svg {
   width: 24px;
   height: 24px;
   padding: 4px;
@@ -2288,37 +2288,66 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
   margin-top: 0;
 }
 
-.about-card:hover {
+.vibe-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 22px 46px var(--ac-shadow);
   border-color: transparent;
 }
-.about-card:hover::after { transform: scale(1.25); opacity: 0.2; }
-.about-card:hover .icon { transform: scale(1.08) rotate(-4deg); }
+.vibe-card:hover::after { transform: scale(1.25); opacity: 0.2; }
+.vibe-card:hover .icon { transform: scale(1.08) rotate(-4deg); }
 
 /* per-card color themes */
-.about-card--vision {
+.vibe-card--teal {
   --ac-grad: linear-gradient(135deg, #0ea5b7 0%, #22d3ee 100%);
   --ac-shadow: rgba(14, 165, 183, 0.30);
   --ac-tint: rgba(34, 211, 238, 0.12);
+  --ac-solid: #0e7f8c;
 }
-.about-card--expertise {
+.vibe-card--blue {
   --ac-grad: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
   --ac-shadow: rgba(79, 70, 229, 0.30);
   --ac-tint: rgba(59, 130, 246, 0.12);
+  --ac-solid: #3730c4;
 }
-.about-card--process {
+.vibe-card--violet {
   --ac-grad: linear-gradient(135deg, #7c3aed 0%, #c026d3 100%);
   --ac-shadow: rgba(124, 58, 237, 0.30);
   --ac-tint: rgba(192, 38, 211, 0.12);
+  --ac-solid: #7c3aed;
 }
-.about-card--people {
+.vibe-card--amber {
   --ac-grad: linear-gradient(135deg, #f59e0b 0%, #fb7185 100%);
   --ac-shadow: rgba(245, 158, 11, 0.30);
   --ac-tint: rgba(251, 113, 133, 0.12);
+  --ac-solid: #e0760b;
+}
+.vibe-card--rose {
+  --ac-grad: linear-gradient(135deg, #e11d8f 0%, #fb7185 100%);
+  --ac-shadow: rgba(225, 29, 143, 0.30);
+  --ac-tint: rgba(251, 113, 133, 0.12);
+  --ac-solid: #c01679;
+}
+.vibe-card--green {
+  --ac-grad: linear-gradient(135deg, #0d9488 0%, #34d399 100%);
+  --ac-shadow: rgba(13, 148, 136, 0.30);
+  --ac-tint: rgba(52, 211, 153, 0.14);
+  --ac-solid: #0a7d73;
 }
 
-.about-card .feature-list li strong {
+.vibe-card p { color: var(--c-body); }
+
+.vibe-card .feature-list li strong {
   font-weight: 800;
   color: var(--c-ink);
 }
+
+/* colored pill inside vibe cards */
+.vibe-card .pill {
+  background: var(--ac-tint);
+  color: var(--ac-solid);
+  border-color: transparent;
+  font-weight: 700;
+}
+
+/* Decorative scroll cue — non-interactive on every page */
+.scroll-down-cue--bottom { cursor: default; pointer-events: none; }
