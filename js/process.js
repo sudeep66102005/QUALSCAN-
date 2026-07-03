@@ -1,4 +1,3 @@
-
   const steps = [
     {
       title: "Scans uploaded to the cloud",
@@ -43,16 +42,15 @@
   const photo = document.getElementById("stagePhoto");
   const panel = document.getElementById("processPanel");
   const dots = document.getElementById("processDots");
-  let active = -1;  // Start at -1 to allow first setStep call
+  let active = -1;
   let autoTimer = null;
   let userStopped = false;
 
   function setStep(index) {
-    if (index === active) return;  // Skip if already on this step
+    if (index === active) return;
     active = index;
     const step = steps[index];
 
-    // ✅ ALL CSS STYLING - Toggling classes for CSS to handle active states
     segments.forEach((segment, i) => segment.classList.toggle("is-active", i === index));
     labels.forEach((label, i) => label.classList.toggle("label-active", i === index));
     [...dots.children].forEach((dot, i) => dot.classList.toggle("is-active", i === index));
@@ -61,20 +59,17 @@
     text.textContent = step.text;
     photo.innerHTML = art[step.art];
 
-    // ✅ POP-IN ANIMATION - Panel slides in with smooth animation
-    panel.classList.remove("pop-in");
-    void panel.offsetWidth; // Force reflow to restart animation
-    panel.classList.add("pop-in");
+    panel.style.animation = "none";
+    void panel.offsetWidth;
+    panel.style.animation = "";
   }
 
-  // ✅ AUTO-PAUSE - Stops carousel when user clicks
   function stopAutoAndShow(index) {
     userStopped = true;
     clearInterval(autoTimer);
     setStep(index);
   }
 
-  // ✅ INTERACTIVE WHEEL - Click dot to jump
   steps.forEach((_, index) => {
     const dot = document.createElement("button");
     dot.type = "button";
@@ -83,17 +78,14 @@
     dots.appendChild(dot);
   });
 
-  // ✅ INTERACTIVE WHEEL - Click segment to jump
   segments.forEach((segment, index) => {
     segment.addEventListener("click", () => stopAutoAndShow(index));
   });
 
-  // ✅ INTERACTIVE WHEEL - Click label to jump
   labels.forEach((label, index) => {
     label.addEventListener("click", () => stopAutoAndShow(index));
   });
 
-  // ✅ AUTO-CAROUSEL - Steps auto-rotate every 2.5 seconds
   function startAutoProcess() {
     autoTimer = setInterval(() => {
       if (userStopped) return;
@@ -103,14 +95,8 @@
   }
 
   document.getElementById("year").textContent = new Date().getFullYear();
-  
-  // Initialize first step
   setStep(0);
-  
-  // Start auto-rotation after a brief delay to ensure DOM is ready
-  setTimeout(() => {
-    startAutoProcess();
-  }, 100);
+  startAutoProcess();
 
   const bottomCue = document.querySelector(".scroll-down-cue--bottom");
 
