@@ -43,12 +43,12 @@
   const photo = document.getElementById("stagePhoto");
   const panel = document.getElementById("processPanel");
   const dots = document.getElementById("processDots");
-  let active = 0;  // Start at step 0
+  let active = -1;  // Start at -1 to allow first setStep call
   let autoTimer = null;
   let userStopped = false;
 
   function setStep(index) {
-    if (index === active && active >= 0) return;  // Allow initial setup
+    if (index === active) return;  // Skip if already on this step
     active = index;
     const step = steps[index];
 

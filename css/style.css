@@ -1712,6 +1712,7 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
     .segment {
       transform-origin: 250px 250px;
       transition: transform 1s cubic-bezier(0.2, 0.9, 0.2, 1), filter 1s ease, opacity 1s ease;
+      cursor: pointer;
     }
 
     .segment path {
@@ -1744,7 +1745,8 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
       letter-spacing: 0.04em;
       text-transform: uppercase;
       text-shadow: 0 6px 16px rgba(0, 0, 0, 0.42);
-      pointer-events: none;
+      pointer-events: auto;
+      cursor: pointer;
       transition: transform 0.45s ease;
       z-index: 4;
     }
