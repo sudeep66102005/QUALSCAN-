@@ -60,9 +60,10 @@
     text.textContent = step.text;
     photo.innerHTML = art[step.art];
 
-    panel.style.animation = "none";
-    void panel.offsetWidth;
-    panel.style.animation = "";
+    // Trigger popup animation
+    panel.classList.remove("pop-in");
+    void panel.offsetWidth; // Force reflow to restart animation
+    panel.classList.add("pop-in");
   }
 
   function stopAutoAndShow(index) {
