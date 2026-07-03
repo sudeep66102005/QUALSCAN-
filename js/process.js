@@ -52,6 +52,7 @@
     active = index;
     const step = steps[index];
 
+    // ✅ ALL CSS STYLING - Toggling classes for CSS to handle active states
     segments.forEach((segment, i) => segment.classList.toggle("is-active", i === index));
     labels.forEach((label, i) => label.classList.toggle("label-active", i === index));
     [...dots.children].forEach((dot, i) => dot.classList.toggle("is-active", i === index));
@@ -60,18 +61,20 @@
     text.textContent = step.text;
     photo.innerHTML = art[step.art];
 
-    // Trigger popup animation
+    // ✅ POP-IN ANIMATION - Panel slides in with smooth animation
     panel.classList.remove("pop-in");
     void panel.offsetWidth; // Force reflow to restart animation
     panel.classList.add("pop-in");
   }
 
+  // ✅ AUTO-PAUSE - Stops carousel when user clicks
   function stopAutoAndShow(index) {
     userStopped = true;
     clearInterval(autoTimer);
     setStep(index);
   }
 
+  // ✅ INTERACTIVE WHEEL - Click dot to jump
   steps.forEach((_, index) => {
     const dot = document.createElement("button");
     dot.type = "button";
@@ -80,14 +83,17 @@
     dots.appendChild(dot);
   });
 
+  // ✅ INTERACTIVE WHEEL - Click segment to jump
   segments.forEach((segment, index) => {
     segment.addEventListener("click", () => stopAutoAndShow(index));
   });
 
+  // ✅ INTERACTIVE WHEEL - Click label to jump
   labels.forEach((label, index) => {
     label.addEventListener("click", () => stopAutoAndShow(index));
   });
 
+  // ✅ AUTO-CAROUSEL - Steps auto-rotate every 2.5 seconds
   function startAutoProcess() {
     autoTimer = setInterval(() => {
       if (userStopped) return;
