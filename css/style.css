@@ -2296,42 +2296,42 @@ h1, h2, h3, h4 { color: var(--c-ink); line-height: 1.18; font-weight: 700; }
 .vibe-card:hover::after { transform: scale(1.25); opacity: 0.2; }
 .vibe-card:hover .icon { transform: scale(1.08) rotate(-4deg); }
 
-/* per-card color themes */
+/* per-card color themes — unified to the brand teal (#004e59) */
 .vibe-card--teal {
-  --ac-grad: linear-gradient(135deg, #0ea5b7 0%, #22d3ee 100%);
-  --ac-shadow: rgba(14, 165, 183, 0.30);
-  --ac-tint: rgba(34, 211, 238, 0.12);
-  --ac-solid: #0e7f8c;
+  --ac-grad: linear-gradient(135deg, #004e59 0%, #0a7b8a 100%);
+  --ac-shadow: rgba(0, 78, 89, 0.30);
+  --ac-tint: rgba(0, 78, 89, 0.12);
+  --ac-solid: #004e59;
 }
 .vibe-card--blue {
-  --ac-grad: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
-  --ac-shadow: rgba(79, 70, 229, 0.30);
-  --ac-tint: rgba(59, 130, 246, 0.12);
-  --ac-solid: #3730c4;
+  --ac-grad: linear-gradient(135deg, #004e59 0%, #0a7b8a 100%);
+  --ac-shadow: rgba(0, 78, 89, 0.30);
+  --ac-tint: rgba(0, 78, 89, 0.12);
+  --ac-solid: #004e59;
 }
 .vibe-card--violet {
-  --ac-grad: linear-gradient(135deg, #7c3aed 0%, #c026d3 100%);
-  --ac-shadow: rgba(124, 58, 237, 0.30);
-  --ac-tint: rgba(192, 38, 211, 0.12);
-  --ac-solid: #7c3aed;
+  --ac-grad: linear-gradient(135deg, #004e59 0%, #0a7b8a 100%);
+  --ac-shadow: rgba(0, 78, 89, 0.30);
+  --ac-tint: rgba(0, 78, 89, 0.12);
+  --ac-solid: #004e59;
 }
 .vibe-card--amber {
-  --ac-grad: linear-gradient(135deg, #f59e0b 0%, #fb7185 100%);
-  --ac-shadow: rgba(245, 158, 11, 0.30);
-  --ac-tint: rgba(251, 113, 133, 0.12);
-  --ac-solid: #e0760b;
+  --ac-grad: linear-gradient(135deg, #004e59 0%, #0a7b8a 100%);
+  --ac-shadow: rgba(0, 78, 89, 0.30);
+  --ac-tint: rgba(0, 78, 89, 0.12);
+  --ac-solid: #004e59;
 }
 .vibe-card--rose {
-  --ac-grad: linear-gradient(135deg, #e11d8f 0%, #fb7185 100%);
-  --ac-shadow: rgba(225, 29, 143, 0.30);
-  --ac-tint: rgba(251, 113, 133, 0.12);
-  --ac-solid: #c01679;
+  --ac-grad: linear-gradient(135deg, #004e59 0%, #0a7b8a 100%);
+  --ac-shadow: rgba(0, 78, 89, 0.30);
+  --ac-tint: rgba(0, 78, 89, 0.12);
+  --ac-solid: #004e59;
 }
 .vibe-card--green {
-  --ac-grad: linear-gradient(135deg, #0d9488 0%, #34d399 100%);
-  --ac-shadow: rgba(13, 148, 136, 0.30);
-  --ac-tint: rgba(52, 211, 153, 0.14);
-  --ac-solid: #0a7d73;
+  --ac-grad: linear-gradient(135deg, #004e59 0%, #0a7b8a 100%);
+  --ac-shadow: rgba(0, 78, 89, 0.30);
+  --ac-tint: rgba(0, 78, 89, 0.12);
+  --ac-solid: #004e59;
 }
 
 .vibe-card p { color: var(--c-body); }
