@@ -1,8 +1,8 @@
 /* ============================================================
-   QUALSCAN — Lead capture form
-   Client-side validation + success state.
-   (No backend wired — submission is handled gracefully and
-    can be connected to an email/CRM endpoint later.)
+   QUALSCAN — Lead capture form (contact page)
+   Client-side validation + Supabase persistence + success state.
+   Submissions are stored in the `leads` table via QualscanLeads
+   (see js/supabase-config.js).
    ============================================================ */
 (function () {
   "use strict";
@@ -17,6 +17,10 @@
   }
   function isEmail(v) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+  function val(id) {
+    var el = document.getElementById(id);
+    return el ? (el.value || "").trim() : "";
   }
 
   form.addEventListener("submit", function (e) {
@@ -38,14 +42,38 @@
       return;
     }
 
-    /* Success state */
     var btn = form.querySelector("button[type=submit]");
+    var btnHtml = btn ? btn.innerHTML : "";
     if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
 
-    setTimeout(function () {
+    var lead = {
+      source: "contact",
+      full_name: val("name"),
+      email: val("email"),
+      organization: val("organization"),
+      region: val("region"),
+      interest: val("interest"),
+      message: val("message")
+    };
+
+    function showSuccess() {
       form.style.display = "none";
       if (success) success.classList.add("show");
-    }, 600);
+    }
+    function showError() {
+      if (btn) { btn.disabled = false; btn.innerHTML = btnHtml; }
+      alert("Sorry, we couldn't send your enquiry right now. Please email us directly at Qualscanradiology@gmail.com and we'll get back to you.");
+    }
+
+    if (window.QualscanLeads && typeof window.QualscanLeads.submit === "function") {
+      window.QualscanLeads.submit(lead).then(showSuccess).catch(function (err) {
+        if (window.console) console.error(err);
+        showError();
+      });
+    } else {
+      /* Fallback if the Supabase helper failed to load */
+      setTimeout(showSuccess, 600);
+    }
   });
 
   /* Clear error as the user types */
