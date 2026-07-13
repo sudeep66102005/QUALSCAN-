@@ -160,12 +160,19 @@
 
 
 /* ============================================================
-   HOME LEAD FORM — client-side validation + success state
+   HOME LEAD FORM — validation + Supabase persistence + success
+   Submissions are stored in the `leads` table via QualscanLeads
+   (see js/supabase-config.js).
    ============================================================ */
 (function () {
   var form = document.getElementById("homeLeadForm");
   var success = document.getElementById("homeFormSuccess");
   if (!form || !success) return;
+
+  function val(name) {
+    var el = form.querySelector("[name=" + name + "]");
+    return el ? (el.value || "").trim() : "";
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -195,9 +202,40 @@
 
     if (!valid) return;
 
-    // Show success (in production, send to backend here)
-    form.style.display = "none";
-    success.classList.add("show");
+    var btn = form.querySelector("button[type=submit]");
+    var btnHtml = btn ? btn.innerHTML : "";
+    if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+
+    var lead = {
+      source: "home",
+      first_name: val("first_name"),
+      last_name: val("last_name"),
+      email: val("email"),
+      phone: val("phone"),
+      organization: val("company"),
+      region: val("region"),
+      role: val("role"),
+      interest: val("interest"),
+      message: val("message")
+    };
+
+    function showSuccess() {
+      form.style.display = "none";
+      success.classList.add("show");
+    }
+    function showError() {
+      if (btn) { btn.disabled = false; btn.innerHTML = btnHtml; }
+      alert("Sorry, we couldn't send your enquiry right now. Please email us directly at Qualscanradiology@gmail.com and we'll get back to you.");
+    }
+
+    if (window.QualscanLeads && typeof window.QualscanLeads.submit === "function") {
+      window.QualscanLeads.submit(lead).then(showSuccess).catch(function (err) {
+        if (window.console) console.error(err);
+        showError();
+      });
+    } else {
+      showSuccess();
+    }
   });
 })();
 
